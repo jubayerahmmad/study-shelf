@@ -4,9 +4,22 @@ import logo from "../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
 import { Tooltip } from "react-tooltip";
+import useAuth from "../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const { user, logoutUser } = useAuth();
+  const handleLogOut = () => {
+    logoutUser().then(() => {
+      Swal.fire({
+        icon: "success",
+        title: "User Logged Out Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
+  };
 
   return (
     <nav className="flex items-center justify-between w-full relative  boxShadow px-[10px] py-[8px] bg-gray-100 font-oswald">
@@ -25,31 +38,87 @@ const Navbar = () => {
         <NavLink to="/addBooks">
           <li className="hover:text-[#3c0c80]">Add Books</li>
         </NavLink>
-        <NavLink to="/borrowedBooks">
-          <li className="hover:text-[#3c0c80]">Borrowed Books</li>
-        </NavLink>
-
-        {/* {user && (
+        {user && (
           <>
             <NavLink to="/borrowedBooks">
               <li className="hover:text-[#3c0c80]">Borrowed Books</li>
             </NavLink>
           </>
-        )} */}
+        )}
       </ul>
 
       <div className="items-center gap-[10px] flex">
-        <Link to="/login">
+        {/* <Link to="/login">
           <button className="btn btn-xs lg:btn-md btn-outline font-medium lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
             Login
           </button>
         </Link>
-
         <Link to="/register">
           <button className="btn btn-xs lg:btn-md btn-outline font-medium lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
             Register
           </button>
-        </Link>
+        </Link> */}
+        {user ? (
+          <>
+            <div className="avatar cursor-pointer">
+              <div
+                className="ring-cyan-400 ring-offset-base-100 w-6 lg:w-10 rounded-full ring ring-offset-2"
+                data-tooltip-id="avatar-tooltip"
+                data-tooltip-offset={10}
+              >
+                <img
+                  src={`${user.photoURL ? user.photoURL : <FaUser></FaUser>}`}
+                />
+              </div>
+            </div>
+            {/* Tooltip with dropdown */}
+            <Tooltip
+              id="avatar-tooltip"
+              place="right"
+              className="z-50"
+              clickable={true}
+              effect="solid"
+              delayHide={100}
+              offset={{ right: 20 }}
+            >
+              <div className="bg-white border border-gray-200 rounded shadow-lg w-40 p-4">
+                <p className="text-gray-700 font-semibold mb-2">
+                  {user.displayName}
+                </p>
+                <Link>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-sm btn-outline w-full lg:btn-md font-semibold text-lg  text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 "
+                  >
+                    Log Out
+                  </button>
+                </Link>
+              </div>
+            </Tooltip>
+            <Link>
+              <button
+                onClick={handleLogOut}
+                className="btn btn-sm btn-outline lg:btn-md font-semibold text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 "
+              >
+                Log Out
+              </button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="btn btn-sm btn-outline lg:btn-md font-semibold text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80]  transition-all duration-300 ">
+                Login
+              </button>
+            </Link>
+
+            <Link to="/register">
+              <button className="btn btn-sm btn-outline lg:btn-md font-semibold text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
+                Register
+              </button>
+            </Link>
+          </>
+        )}
 
         {mobileSidebarOpen ? (
           <CgClose
