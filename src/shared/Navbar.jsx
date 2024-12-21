@@ -6,7 +6,6 @@ import { CgClose } from "react-icons/cg";
 import { Tooltip } from "react-tooltip";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
-import { FaUser } from "react-icons/fa6";
 
 const Navbar = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
