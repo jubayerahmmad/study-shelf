@@ -6,7 +6,9 @@ const Footer = () => {
       <footer className="footer lg:w-10/12 mx-auto p-10">
         <aside>
           <img className="w-20" src={logo} alt="Study Shelf Logo" />
-          <h2 className="text-2xl font-pacifico font-bold">Study Shelf</h2>
+          <h2 className="text-2xl font-pacifico font-bold text-purple-900">
+            Study Shelf
+          </h2>
           <p className="font-merriweather text-sm">
             Unlock Your Learning Potential
           </p>

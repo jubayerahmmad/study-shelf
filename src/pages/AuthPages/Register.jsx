@@ -9,7 +9,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
-  const { registerUser, updateUser } = useAuth();
+  const { registerUser, updateUser, googleLogin } = useAuth();
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -67,6 +67,23 @@ const Register = () => {
         setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
       });
   };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "User Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(`${state ? state : "/"}`);
+      })
+      .catch((error) => {
+        setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
+      });
+  };
+
   return (
     <div className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8  border border-purple-600 shadow-md">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
@@ -166,7 +183,7 @@ const Register = () => {
           <div className="mt-6 text-center">
             <button
               type="submit"
-              // onClick={handleGoogleLogin}
+              onClick={handleGoogleLogin}
               className="w-full btn btn-outline text-purple-700 hover:bg-purple-700 py-3 rounded-full"
             >
               <FaGoogle></FaGoogle>Register with Google

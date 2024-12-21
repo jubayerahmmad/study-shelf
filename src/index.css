@@ -2,6 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
 .active {
   color: #3c0c80;
   font-weight: 700;

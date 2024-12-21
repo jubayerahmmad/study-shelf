@@ -1,15 +1,17 @@
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/login-animation.json";
 import { FaGoogle } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { loginUser } = useAuth();
+  const { loginUser, googleLogin } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const { state } = useLocation();
+  // console.log(state);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,12 +28,29 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/");
+        navigate(`${state ? state : "/"}`);
       })
       .catch((error) => {
         setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
       });
   };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "User Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(`${state ? state : "/"}`);
+      })
+      .catch((error) => {
+        setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
+      });
+  };
+
   return (
     <div className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8 border border-purple-600 shadow-md">
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
@@ -103,7 +122,7 @@ const Login = () => {
           <div className="mt-6 text-center">
             <button
               type="submit"
-              // onClick={handleGoogleLogin}
+              onClick={handleGoogleLogin}
               className="w-full btn btn-outline text-purple-700 hover:bg-purple-700 py-3 rounded-full"
             >
               <FaGoogle></FaGoogle> Login with Google

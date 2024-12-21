@@ -7,6 +7,7 @@ import Login from "../pages/AuthPages/Login";
 import Register from "../pages/AuthPages/Register";
 import AddBooks from "../pages/AddBooks";
 import BorrowedBooks from "../pages/BorrowedBooks";
+import ProtectedRoute from "./ProtectedRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,15 +20,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/allBooks",
-        element: <AllBooks></AllBooks>,
+        element: (
+          <ProtectedRoute>
+            <AllBooks></AllBooks>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/addBooks",
-        element: <AddBooks></AddBooks>,
+        element: (
+          <ProtectedRoute>
+            <AddBooks></AddBooks>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/borrowedBooks",
-        element: <BorrowedBooks></BorrowedBooks>,
+        element: (
+          <ProtectedRoute>
+            <BorrowedBooks></BorrowedBooks>
+          </ProtectedRoute>
+        ),
       },
 
       {
