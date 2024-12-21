@@ -10,6 +10,6 @@
 }
 
 .active {
-  color: #3c0c80;
-  font-weight: 700;
+  color: #5c0377;
+  text-decoration: underline;
 }

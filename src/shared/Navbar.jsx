@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <div className="px-6 py-4 bg-gray-100 w-full">
-      <nav className="flex items-center justify-between  relative w-10/12 mx-auto boxShadow font-oswald">
+      <nav className="flex items-center justify-between  relative lg:w-10/12 mx-auto boxShadow font-oswald">
         <Link to="/" className="btn shadow-none">
           <img src={logo} alt="logo" className="w-8 lg:w-12 object-cover" />
           <span className="font-pacifico text-xl lg:text-2xl text-purple-900">

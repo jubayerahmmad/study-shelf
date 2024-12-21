@@ -46,7 +46,7 @@ const Banner = () => {
             <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4 rounded-xl">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Welcome to{" "}
-                <span className="text-purple-400 text-7xl font-pacifico">
+                <span className="text-purple-400 text-3xl lg:text-7xl font-pacifico">
                   Study Shelf
                 </span>
               </h2>
