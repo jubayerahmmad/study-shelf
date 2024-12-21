@@ -9,10 +9,10 @@ const Navbar = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between w-full relative  boxShadow px-[10px] py-[8px] bg-gray-100 ">
+    <nav className="flex items-center justify-between w-full relative  boxShadow px-[10px] py-[8px] bg-gray-100 font-oswald">
       <Link to="/" className="btn shadow-none">
-        <img src={logo} alt="logo" className="w-4 lg:w-8 object-cover" />
-        <span cls>Study Shelf</span>
+        <img src={logo} alt="logo" className="w-8 lg:w-12 object-cover" />
+        <span className="font-pacifico text-xl">Study Shelf</span>
       </Link>
 
       <ul className="items-center gap-12 text-2xl  xl:flex hidden font-semibold ">
@@ -40,13 +40,13 @@ const Navbar = () => {
 
       <div className="items-center gap-[10px] flex">
         <Link to="/login">
-          <button className="btn btn-xs lg:btn-md font-semibold text-lg rounded-md border-none bg-[#3c0c80] text-white hover:bg-[#bf57df] transition-all duration-300 ">
+          <button className="btn btn-xs lg:btn-md btn-outline font-medium lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
             Login
           </button>
         </Link>
 
         <Link to="/register">
-          <button className="btn btn-xs lg:btn-md font-semibold text-lg rounded-md border-none bg-[#3c0c80] text-white hover:bg-[#bf57df] transition-all duration-300 ">
+          <button className="btn btn-xs lg:btn-md btn-outline font-medium lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
             Register
           </button>
         </Link>
