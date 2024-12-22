@@ -41,8 +41,8 @@ const BookDetails = () => {
           `https://study-shelf-server.vercel.app/borrowedBooks`,
           borrowedBook
         )
-        .then((res) => {
-          console.log(res.data);
+        .then(() => {
+          // console.log(res.data);
           Swal.fire({
             icon: "success",
             title: "Book Borrowed Successfully",

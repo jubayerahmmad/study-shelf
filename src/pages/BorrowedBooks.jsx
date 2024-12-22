@@ -4,12 +4,12 @@ import useAuth from "../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
 import noDataAnimation from "../assets/noData.json";
-import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const BorrowedBooks = () => {
   const { user } = useAuth();
   const [books, setBooks] = useState([]);
-  console.log(books);
+  // console.log(books);
 
   useEffect(() => {
     axios
@@ -21,7 +21,34 @@ const BorrowedBooks = () => {
   }, [user?.email]);
 
   const handleReturn = (id) => {
-    console.log(id);
+    Swal.fire({
+      title: "Are you sure you want to return This?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://study-shelf-server.vercel.app/borrowedBooks/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            // console.log(data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Book has been returned.",
+                icon: "success",
+              });
+              const remaining = books.filter((book) => book._id !== id);
+              setBooks(remaining);
+            }
+          });
+      }
+    });
   };
 
   return (
@@ -56,13 +83,19 @@ const BorrowedBooks = () => {
 
                   <div className="lg:flex items-center gap-4 space-y-4 lg:space-y-0">
                     <p className="text-gray-700">
-                      Borrowed on: {book.borrowDate}
+                      Borrowed on:{" "}
+                      <span className="font-oswald tracking-wider">
+                        {book.borrowDate}
+                      </span>
                     </p>
                     <p className="text-gray-700">
-                      Return Date: {book.returnDate}
+                      Return Date:{" "}
+                      <span className="font-oswald tracking-wider">
+                        {book.returnDate}
+                      </span>
                     </p>
                     <button
-                      onClick={() => handleReturn(book._id)}
+                      onClick={() => handleReturn(book?._id)}
                       className="btn bg-purple-700 hover:bg-purple-950 text-white font-merriweather"
                     >
                       Return

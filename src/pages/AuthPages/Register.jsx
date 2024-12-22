@@ -43,9 +43,7 @@ const Register = () => {
 
     // register user
     registerUser(email, password)
-      .then((result) => {
-        console.log(result);
-
+      .then(() => {
         //update name,photo
         const updatedInfo = { displayName: name, photoURL: photo };
         updateUser(updatedInfo)
@@ -60,11 +58,11 @@ const Register = () => {
             navigate("/");
           })
           .catch((err) => {
-            console.log(err.code);
+            setError(err.code);
           });
       })
       .catch((error) => {
-        console.log(error.code);
+        // console.log(error.code);
         setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
       });
   };
