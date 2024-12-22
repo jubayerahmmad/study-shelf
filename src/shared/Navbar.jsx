@@ -55,7 +55,7 @@ const Navbar = () => {
             <>
               <div className="avatar cursor-pointer">
                 <div
-                  className="ring-cyan-400 ring-offset-base-100 w-6 lg:w-10 rounded-full ring ring-offset-2"
+                  className="ring-purple-700 ring-offset-base-100 w-6 lg:w-10 rounded-full ring ring-offset-2"
                   data-tooltip-id="avatar-tooltip"
                   data-tooltip-offset={10}
                 >

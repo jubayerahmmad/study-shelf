@@ -46,16 +46,16 @@ const Banner = () => {
             <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4 rounded-xl">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Welcome to{" "}
-                <span className="text-purple-400 text-3xl lg:text-7xl font-pacifico">
+                <span className="text-purple-400 text-4xl lg:text-7xl font-pacifico">
                   Study Shelf
                 </span>
               </h2>
-              <p className="text-gray-300 text-sm lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
+              <p className="text-gray-300 text-xs px-5 lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
                 Study Shelf is a platform for book lovers. Here you can find a
                 wide range of books, from classics to modern bestsellers.
-                Whether you're a student, a professional, or just a casual
-                reader, Study Shelf has something for everyone. So, start
-                exploring and expand your knowledge!
+                Whether you're a student or a professional Study Shelf has
+                something for everyone. So, start exploring and expand your
+                knowledge!
               </p>{" "}
             </div>
           </div>
@@ -77,7 +77,7 @@ const Banner = () => {
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Unlock Your Reading Journey
               </h2>
-              <p className="text-gray-300 text-sm lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
+              <p className="text-gray-300 text-xs px-5 lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
                 Explore a vast collection of books across various genres and
                 categories. From timeless classics to modern bestsellers, Study
                 Shelf has something for every book lover.
@@ -102,7 +102,7 @@ const Banner = () => {
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Unlock New Perspectives
               </h2>
-              <p className="text-gray-300 text-sm lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
+              <p className="text-gray-300 text-xs px-5 lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
                 Discover a wide range of books from different genres and
                 categories. Study Shelf has something for everyone, from
                 timeless classics to modern bestsellers.
@@ -127,7 +127,7 @@ const Banner = () => {
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Your Learning Hub
               </h2>
-              <p className="text-gray-300 text-sm lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
+              <p className="text-gray-300 text-xs px-5 lg:text-xl max-w-6xl text-center animate__animated animate__fadeInLeft font-merriweather">
                 Organize, borrow, and manage your favorite reads with ease.
                 StudyShelf simplifies library management like never before.
               </p>{" "}

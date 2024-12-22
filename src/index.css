@@ -9,6 +9,16 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Oswald", serif;
+}
+
+p {
+  font-family: "Merriweather", serif;
+}
+
 .active {
   color: #5c0377;
   text-decoration: underline;

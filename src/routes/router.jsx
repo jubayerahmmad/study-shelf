@@ -8,6 +8,7 @@ import Register from "../pages/AuthPages/Register";
 import AddBooks from "../pages/AddBooks";
 import BorrowedBooks from "../pages/BorrowedBooks";
 import ProtectedRoute from "./ProtectedRoute";
+import CategoryPage from "../pages/CategoryPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <AllBooks></AllBooks>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/category/:id",
+        element: (
+          <ProtectedRoute>
+            <CategoryPage></CategoryPage>
           </ProtectedRoute>
         ),
       },
