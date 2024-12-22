@@ -6,6 +6,7 @@ import { RxCross1 } from "react-icons/rx";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const BookDetails = () => {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -16,7 +17,7 @@ const BookDetails = () => {
   const borrowDate = new Date().toISOString().split("T")[0];
   // console.log(borrowDate);
 
-  const handleBorrow = (e) => {
+  const handleBorrow = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -34,19 +35,39 @@ const BookDetails = () => {
       category: book.category,
     };
 
-    // console.log(email, name, returnDate);
-    axios
-      .post(`https://study-shelf-server.vercel.app/borrowedBooks`, borrowedBook)
-      .then((res) => {
-        console.log(res.data);
-        Swal.fire({
-          icon: "success",
-          title: "Book Borrowed Successfully",
-          showConfirmButton: false,
-          timer: 1500,
+    try {
+      await axios
+        .post(
+          `https://study-shelf-server.vercel.app/borrowedBooks`,
+          borrowedBook
+        )
+        .then((res) => {
+          console.log(res.data);
+          Swal.fire({
+            icon: "success",
+            title: "Book Borrowed Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setisModalOpen(false);
         });
-        setisModalOpen(false);
-      });
+    } catch (err) {
+      // console.log(err);
+      toast.error(err.response.data);
+      setisModalOpen(false);
+    }
+    // axios
+    //   .post(`https://study-shelf-server.vercel.app/borrowedBooks`, borrowedBook)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     Swal.fire({
+    //       icon: "success",
+    //       title: "Book Borrowed Successfully",
+    //       showConfirmButton: false,
+    //       timer: 1500,
+    //     });
+    //     setisModalOpen(false);
+    //   });
   };
 
   return (
@@ -105,6 +126,7 @@ const BookDetails = () => {
         <div className="my-4">
           <button
             onClick={() => setisModalOpen(true)}
+            disabled={!book.quantity}
             className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
           >
             Borrow This Book
