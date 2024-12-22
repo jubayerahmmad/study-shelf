@@ -1,5 +1,6 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import { Helmet } from "react-helmet-async";
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -8,6 +9,9 @@ const CategoryPage = () => {
   // console.log(books);
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
+      <Helmet>
+        <title>{category} - Study Shelf</title>
+      </Helmet>
       <div>
         <div className="text-center">
           <h2 className="text-3xl lg:text-5xl font-bold mb-8">

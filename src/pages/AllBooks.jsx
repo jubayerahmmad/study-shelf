@@ -1,11 +1,15 @@
 import { Link, useLoaderData } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import { Helmet } from "react-helmet-async";
 
 const AllBooks = () => {
   const books = useLoaderData();
   // console.log(books);
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
+      <Helmet>
+        <title>All Books - Study Shelf</title>
+      </Helmet>
       <div>
         <div className="text-center">
           <h2 className="text-3xl lg:text-5xl font-bold mb-8">

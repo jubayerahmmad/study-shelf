@@ -1,18 +1,54 @@
 import { useLoaderData } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import { RxCross1 } from "react-icons/rx";
+import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 const BookDetails = () => {
+  const [isModalOpen, setisModalOpen] = useState(false);
+  const { user } = useAuth();
   const book = useLoaderData();
-  // console.log(book);
+
+  const borrowDate = new Date().toISOString().split("T")[0];
+  // console.log(borrowDate);
+
+  const handleBorrow = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const returnDate = form.returnDate.value;
+
+    const borrowedBook = {
+      name,
+      email,
+      borrowDate,
+      returnDate,
+      bookId: book._id,
+    };
+
+    // console.log(email, name, returnDate);
+    axios
+      .post(`http://localhost:5000/borrowedBooks`, borrowedBook)
+      .then((res) => {
+        console.log(res.data);
+      });
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center">
+      <Helmet>
+        <title>Book Details - Study Shelf</title>
+      </Helmet>
       <div>
-        <h1 className="text-3xl font-bold text-gray-800 my-6">
+        <h1 className="text-xl lg:text-4xl font-bold text-gray-800 my-6 text-center">
           Check Details of{" "}
           <span className="font-bold text-purple-800">{book.name}</span>
         </h1>
       </div>
-      <div className="p-6 bg-gray-50 rounded-md shadow-md w-8/12 mx-auto gap-6">
+      <div className="p-6 bg-gray-50 rounded-md shadow-md lg:w-8/12 mx-auto gap-6">
         <div>
           <img
             src={book.image}
@@ -55,9 +91,94 @@ const BookDetails = () => {
           </p>
         </div>
         <div className="my-4">
-          <button className="btn text-white bg-purple-600 hover:bg-purple-800 font-bold">
+          <button
+            onClick={() => setisModalOpen(true)}
+            className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
+          >
             Borrow This Book
           </button>
+        </div>
+      </div>
+
+      {/* modal */}
+
+      <div
+        className={`${
+          isModalOpen ? " visible" : " invisible"
+        } w-full h-screen fixed top-0 left-0 z-50 bg-[#0000002a] transition-all duration-300 flex items-center justify-center font-merriweather`}
+      >
+        <div
+          className={`${
+            isModalOpen ? " scale-[1] opacity-100" : " scale-[0] opacity-0"
+          } w-[90%] md:w-[80%] lg:w-[35%] bg-[#fff] rounded-lg transition-all duration-300 mx-auto mt-8`}
+        >
+          <div className="w-full flex items-end p-4 justify-between border-b border-[#d1d1d1]">
+            <h1 className="text-[1.5rem] font-bold">
+              Fill out the Form to Borrow this Book
+            </h1>
+            <RxCross1
+              className="p-2 text-[2.5rem] hover:bg-[#e7e7e7] rounded-full transition-all duration-300 cursor-pointer"
+              onClick={() => setisModalOpen(false)}
+            />
+          </div>
+
+          <form onSubmit={handleBorrow} className="flex flex-col gap-5 p-4">
+            <div>
+              <label
+                htmlFor="email"
+                className="text-[1rem] font-[500] text-[#464646]"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={user?.email}
+                placeholder="email"
+                className="py-2 px-3 border border-[#d1d1d1] rounded-md w-full focus:outline-none mt-1 focus:border-[#3B9DF8]"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="name"
+                className="text-[1rem] font-[500] text-[#464646]"
+              >
+                User Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={user?.displayName}
+                placeholder="User name"
+                className="py-2 px-3 border border-[#d1d1d1] rounded-md w-full focus:outline-none mt-1 focus:border-[#3B9DF8]"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="returnDate"
+                className="text-[1rem] font-[500] text-[#464646]"
+              >
+                Return Date
+              </label>
+              <input
+                type="date"
+                name="returnDate"
+                id="returnDate"
+                placeholder="Return Date"
+                className="py-2 px-3 border border-[#d1d1d1] rounded-md w-full focus:outline-none mt-1 focus:border-[#3B9DF8]"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="btn text-lg w-full bg-purple-700 hover:bg-purple-950 text-[#fff] rounded-md"
+            >
+              Borrow
+            </button>
+          </form>
         </div>
       </div>
     </div>

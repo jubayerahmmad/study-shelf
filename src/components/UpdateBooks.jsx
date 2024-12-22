@@ -5,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { FaBackward } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const UpdateBooks = () => {
   const navigate = useNavigate();
@@ -48,6 +49,9 @@ const UpdateBooks = () => {
 
   return (
     <div className="w-10/12 mx-auto border-2 border-purple-950 p-4 my-6">
+      <Helmet>
+        <title>Update Book - Study Shelf</title>
+      </Helmet>
       <button
         onClick={handleGoBack}
         className="btn btn-xs btn-outline text-purple-800 hover:bg-purple-800"

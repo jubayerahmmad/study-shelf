@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser, googleLogin } = useAuth();
@@ -53,6 +54,9 @@ const Login = () => {
 
   return (
     <div className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8 border border-purple-600 shadow-md">
+      <Helmet>
+        <title>Login - Study Shelf</title>
+      </Helmet>
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
         Login Here
       </h2>

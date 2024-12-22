@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { registerUser, updateUser, googleLogin } = useAuth();
@@ -86,6 +87,9 @@ const Register = () => {
 
   return (
     <div className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8  border border-purple-600 shadow-md">
+      <Helmet>
+        <title>Register - Study Shelf</title>
+      </Helmet>
       <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
         Register Now
       </h2>

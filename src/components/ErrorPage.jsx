@@ -1,10 +1,14 @@
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import notFoundAnimation from "../assets/404animation.json";
+import { Helmet } from "react-helmet-async";
 
 const ErrorPage = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen font-montserrat">
+    <div className="flex items-center justify-center min-h-screen font-oswald">
+      <Helmet>
+        <title>Error 404 Not Found</title>
+      </Helmet>
       <div className="text-center">
         {/* Lottie animation */}
         <Lottie
