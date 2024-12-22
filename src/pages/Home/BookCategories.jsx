@@ -36,7 +36,7 @@ const BookCategories = () => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {categories.map((category) => (
-          <Link key={category.id} to={`/category/${category.id}`}>
+          <Link key={category.id} to={`/category/${category.category}`}>
             <div className="bg-white rounded-md shadow-md relative hover:scale-105 transition duration-500">
               <img
                 src={category.img}

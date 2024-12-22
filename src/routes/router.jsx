@@ -40,12 +40,14 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/allBooks/${params.id}`),
       },
       {
-        path: "/category/:id",
+        path: "/category/:category",
         element: (
           <ProtectedRoute>
             <CategoryPage></CategoryPage>
           </ProtectedRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/books/${params.category}`),
       },
       {
         path: "/addBooks",
