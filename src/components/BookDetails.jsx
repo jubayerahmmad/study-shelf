@@ -5,11 +5,13 @@ import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const BookDetails = () => {
   const [isModalOpen, setisModalOpen] = useState(false);
   const { user } = useAuth();
   const book = useLoaderData();
+  // console.log(book);
 
   const borrowDate = new Date().toISOString().split("T")[0];
   // console.log(borrowDate);
@@ -26,14 +28,24 @@ const BookDetails = () => {
       email,
       borrowDate,
       returnDate,
-      bookId: book._id,
+      bookId: book?._id,
+      name: book?.name,
+      image: book?.image,
+      category: book.category,
     };
 
     // console.log(email, name, returnDate);
     axios
-      .post(`http://localhost:5000/borrowedBooks`, borrowedBook)
+      .post(`https://study-shelf-server.vercel.app/borrowedBooks`, borrowedBook)
       .then((res) => {
         console.log(res.data);
+        Swal.fire({
+          icon: "success",
+          title: "Book Borrowed Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setisModalOpen(false);
       });
   };
 
@@ -48,7 +60,7 @@ const BookDetails = () => {
           <span className="font-bold text-purple-800">{book.name}</span>
         </h1>
       </div>
-      <div className="p-6 bg-gray-50 rounded-md shadow-md lg:w-8/12 mx-auto gap-6">
+      <div className="p-6 bg-gray-50 rounded-md shadow-md lg:w-8/12 mx-auto mb-6">
         <div>
           <img
             src={book.image}
@@ -87,7 +99,7 @@ const BookDetails = () => {
             <p className="text-gray-600 mt-1">{book.bookContent}</p>
           </div>
           <p className="text-gray-600 mt-4">
-            <span className="font-semibold">Quantity:</span> {book.quantity}
+            <span className="font-semibold">Quantity:</span> {book?.quantity}
           </p>
         </div>
         <div className="my-4">
