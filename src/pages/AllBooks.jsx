@@ -26,7 +26,7 @@ const AllBooks = () => {
               />
 
               <div className="px-5 pb-5 my-4">
-                <div className="h-64">
+                <div className="h-36">
                   <h2 className="text-2xl font-semibold tracking-wide text-gray-900">
                     {book.name}
                   </h2>
@@ -38,8 +38,6 @@ const AllBooks = () => {
                       {book.category}
                     </span>
                   </h3>
-
-                  <p className="my-4 text-gray-500">{book.shortDescription}</p>
 
                   <div className="flex items-center gap-2 mt-2.5 mb-5">
                     <div className="flex items-center">

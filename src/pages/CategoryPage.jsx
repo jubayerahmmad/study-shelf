@@ -5,13 +5,13 @@ const CategoryPage = () => {
   const { category } = useParams();
   // console.log(category);
   const books = useLoaderData();
-  console.log(books);
+  // console.log(books);
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
       <div>
         <div className="text-center">
           <h2 className="text-3xl lg:text-5xl font-bold mb-8">
-            Explore Our{" "}
+            Check Our{" "}
             <span className="font-pacifico text-purple-900">{category}</span>{" "}
             Books
           </h2>
@@ -29,7 +29,7 @@ const CategoryPage = () => {
               />
 
               <div className="px-5 pb-5 my-4">
-                <div className="h-64">
+                <div className="h-32">
                   <h2 className="text-2xl font-semibold tracking-wide text-gray-900">
                     {book.name}
                   </h2>
@@ -41,8 +41,6 @@ const CategoryPage = () => {
                       {book.category}
                     </span>
                   </h3>
-
-                  <p className="my-4 text-gray-500">{book.shortDescription}</p>
 
                   <div className="flex items-center gap-2 mt-2.5 mb-5">
                     <div className="flex items-center">
@@ -62,7 +60,10 @@ const CategoryPage = () => {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <Link className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                  <Link
+                    to={`/bookDetails/${book._id}`}
+                    className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                  >
                     Details
                   </Link>
                   <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold">

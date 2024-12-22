@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <section className="py-16 px-6">
-      <div className="text-center space-y-2">
+    <section className="py-16 px-6 bg-gradient-to-t from-slate-50 to-gray-200">
+      <div className="text-center space-y-2 my-6">
         <h1 className="text-4xl lg:text-6xl font-oswald font-bold">
           Welcome to <span className="text-purple-700">StudyShelf</span>
         </h1>

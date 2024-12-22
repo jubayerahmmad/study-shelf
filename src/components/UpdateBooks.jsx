@@ -1,15 +1,16 @@
 import Lottie from "lottie-react";
 import updateAnimation from "../assets/update-book-animation.json";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { FaBackward } from "react-icons/fa6";
 
 const UpdateBooks = () => {
   const navigate = useNavigate();
   const { _id, image, category, name, authorName, rating } = useLoaderData();
   const [categorySelect, setCategorySelect] = useState(category);
-  console.log(categorySelect);
+  // console.log(categorySelect);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ const UpdateBooks = () => {
     axios
       .patch(`http://localhost:5000/allBooks/${_id}`, updatedData)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
 
         if (res.data.modifiedCount) {
           Swal.fire({
@@ -38,8 +39,19 @@ const UpdateBooks = () => {
       });
   };
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="max-w-6xl mx-auto border-2 border-purple-950 p-6 m-4">
+    <div className="w-10/12 mx-auto border-2 border-purple-950 p-4 my-6">
+      <button
+        onClick={handleGoBack}
+        className="btn btn-xs btn-outline text-purple-800 hover:bg-purple-800"
+      >
+        <FaBackward></FaBackward>
+      </button>
+
       <div className="text-center space-y-3">
         <h2 className="text-3xl lg:text-5xl font-semibold">
           Update Books Info
