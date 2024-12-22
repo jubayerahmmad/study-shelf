@@ -22,7 +22,10 @@ const UpdateBooks = () => {
     // console.log(image, name, authorName, rating, categorySelect);
     const updatedData = { image, name, authorName, categorySelect, rating };
     axios
-      .patch(`http://localhost:5000/allBooks/${_id}`, updatedData)
+      .patch(
+        `https://study-shelf-server.vercel.app/allBooks/${_id}`,
+        updatedData
+      )
       .then((res) => {
         // console.log(res.data);
 

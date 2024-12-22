@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             <AllBooks></AllBooks>
           </ProtectedRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allBooks"),
+        loader: () => fetch("https://study-shelf-server.vercel.app/allBooks"),
       },
       {
         path: "/update-book/:id",
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allBooks/${params.id}`),
+          fetch(`https://study-shelf-server.vercel.app/allBooks/${params.id}`),
       },
       {
         path: "/category/:category",
@@ -48,7 +48,9 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/books/${params.category}`),
+          fetch(
+            `https://study-shelf-server.vercel.app/books/${params.category}`
+          ),
       },
       {
         path: "/bookDetails/:id",
@@ -58,7 +60,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allBooks/${params.id}`),
+          fetch(`https://study-shelf-server.vercel.app/allBooks/${params.id}`),
       },
       {
         path: "/addBooks",

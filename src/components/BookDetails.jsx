@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 
 const BookDetails = () => {
   const book = useLoaderData();
-  console.log(book);
+  // console.log(book);
   return (
     <div className="min-h-screen flex flex-col items-center">
       <div>
