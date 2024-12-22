@@ -1,0 +1,102 @@
+[
+  {
+    "image": "https://i.ibb.co.com/Q6Lg5Dd/project-hail-mary.webp",
+    "name": "Project Hail Mary",
+    "quantity": 45,
+    "authorName": "Andy Weir",
+    "category": "Science Fiction",
+    "shortDescription": "A lone astronaut must save humanity from an extinction-level threat while dealing with memory loss and being millions of miles from Earth.",
+    "rating": 4.8,
+    "bookContent": "From the author of The Martian comes a thrilling tale of survival and discovery, as Ryland Grace awakens alone on a spacecraft with no memory of his mission or even his own name."
+  },
+  {
+    "image": "https://i.ibb.co.com/SdZL7vX/neuromancer.webp",
+    "name": "Neuromancer",
+    "quantity": 32,
+    "authorName": "William Gibson",
+    "category": "Science Fiction",
+    "shortDescription": "A groundbreaking cyberpunk novel following a washed-up hacker hired for one last job that could change the face of the digital world.",
+    "rating": 4.5,
+    "bookContent": "The novel that defined cyberpunk, Neuromancer explores a future where technology has transformed society, and the line between reality and virtual reality becomes increasingly blurred."
+  },
+  {
+    "image": "https://i.ibb.co.com/frck1Vb/the-seven-husbands-of-evelyn-hugo.jpg",
+    "name": "The Seven Husbands of Evelyn Hugo",
+    "quantity": 67,
+    "authorName": "Taylor Jenkins Reid",
+    "category": "Novel",
+    "shortDescription": "An aging Hollywood starlet finally tells her life story to an unknown journalist, revealing shocking truths about her seven marriages.",
+    "rating": 4.8,
+    "bookContent": "A mesmerizing novel about the price of fame, ambition, and identity in Golden Age Hollywood, told through the memorable voice of fictional movie icon Evelyn Hugo."
+  },
+  {
+    "image": "https://i.ibb.co.com/0cY275Q/tomorrow.webp",
+    "name": "Tomorrow, and Tomorrow, and Tomorrow",
+    "quantity": 51,
+    "authorName": "Gabrielle Zevin",
+    "category": "Novel",
+    "shortDescription": "A complex story about friendship, love, and creativity following two friends who collaborate on video game development over three decades.",
+    "rating": 4.7,
+    "bookContent": "Spanning thirty years, this novel explores the multifaceted relationship between Sam and Sadie as they create worlds, face tragedies, and navigate their complex relationship."
+  },
+  {
+    "image": "https://i.ibb.co.com/zXfdct6/spqr.jpg",
+    "name": "SPQR: A History of Ancient Rome",
+    "quantity": 38,
+    "authorName": "Mary Beard",
+    "category": "History",
+    "shortDescription": "A comprehensive examination of Roman civilization from its founding myths through the Republic and early Empire.",
+    "rating": 4.6,
+    "bookContent": "Mary Beard narrates the first thousand years of Roman history, challenging our preconceptions and exploring how Rome grew from an insignificant village to the center of a vast empire."
+  },
+  {
+    "image": "https://i.ibb.co.com/TvjBp0R/the-guns-of-august.webp",
+    "name": "The Guns of August",
+    "quantity": 42,
+    "authorName": "Barbara W. Tuchman",
+    "category": "History",
+    "shortDescription": "A detailed account of the first month of World War I, examining the decisions and events that led to global conflict.",
+    "rating": 4.7,
+    "bookContent": "This Pulitzer Prize-winning masterpiece chronicles the fateful first month of World War I, when decisions made by heads of state cascaded into a conflict that would reshape the world."
+  },
+  {
+    "image": "https://i.ibb.co.com/ykZcMJ3/gone-girl.webp",
+    "name": "Gone Girl",
+    "quantity": 55,
+    "authorName": "Gillian Flynn",
+    "category": "Thriller",
+    "shortDescription": "A woman disappears on her wedding anniversary, leaving her husband as the prime suspect in a twisted tale of psychological manipulation.",
+    "rating": 4.4,
+    "bookContent": "This masterful psychological thriller explores marriage, media, and the depths of human deception through the lens of Nick and Amy Dunne's complicated relationship."
+  },
+  {
+    "image": "https://i.ibb.co.com/mSCSf1Z/silent-patient.jpg",
+    "name": "The Silent Patient",
+    "quantity": 48,
+    "authorName": "Alex Michaelides",
+    "category": "Thriller",
+    "shortDescription": "A woman shoots her husband five times and never speaks again, becoming the focus of a criminal psychotherapist determined to uncover her motive.",
+    "rating": 4.5,
+    "bookContent": "This psychological thriller follows criminal psychotherapist Theo Faber's dangerous obsession with understanding why Alicia Berenson murdered her husband and then fell silent."
+  },
+  {
+    "image": "https://i.ibb.co.com/Bs6J8yv/girl-with-dragon-tattoo.jpg",
+    "name": "The Girl with the Dragon Tattoo",
+    "quantity": 29,
+    "authorName": "Stieg Larsson",
+    "category": "Thriller",
+    "shortDescription": "A journalist and a brilliant hacker investigate a decades-old disappearance, uncovering dark secrets about one of Sweden's wealthiest families.",
+    "rating": 4.6,
+    "bookContent": "This international bestseller combines murder mystery, family saga, and financial intrigue into one satisfyingly complex story featuring the unforgettable character Lisbeth Salander."
+  },
+  {
+    "image": "https://i.ibb.co.com/MVPfQtq/dune.jpg",
+    "name": "Dune",
+    "quantity": 41,
+    "authorName": "Frank Herbert",
+    "category": "Science Fiction",
+    "shortDescription": "Set on the desert planet Arrakis, this epic science fiction novel follows Paul Atreides as his family accepts control of the most valuable substance in the universe.",
+    "rating": 4.7,
+    "bookContent": "Winner of multiple awards, this masterpiece of science fiction combines politics, religion, and ecology in a complex tale of destiny, power, and human evolution."
+  }
+]

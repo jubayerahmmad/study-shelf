@@ -9,6 +9,7 @@ import AddBooks from "../pages/AddBooks";
 import BorrowedBooks from "../pages/BorrowedBooks";
 import ProtectedRoute from "./ProtectedRoute";
 import CategoryPage from "../pages/CategoryPage";
+import UpdateBooks from "../components/UpdateBooks";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,17 @@ const router = createBrowserRouter([
             <AllBooks></AllBooks>
           </ProtectedRoute>
         ),
+        loader: () => fetch("http://localhost:5000/allBooks"),
+      },
+      {
+        path: "/update-book/:id",
+        element: (
+          <ProtectedRoute>
+            <UpdateBooks></UpdateBooks>
+          </ProtectedRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allBooks/${params.id}`),
       },
       {
         path: "/category/:id",

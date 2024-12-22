@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const BookCategories = () => {
   const categories = [
     {
-      category: "Science-Fiction",
+      category: "Science Fiction",
       img: "https://i.ibb.co.com/DpRnvgB/sci-fi.png",
       id: "science-fiction",
     },
