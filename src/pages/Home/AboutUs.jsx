@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -60,9 +61,11 @@ const AboutUs = () => {
 
       {/* Call-to-Action */}
       <div className="text-center mt-12">
-        <button className="btn btn-outline text-purple-800 hover:bg-purple-800 text-xl rounded-lg font-oswald">
-          Explore Books
-        </button>
+        <Link to="/allBooks">
+          <button className="btn btn-outline text-purple-800 hover:bg-purple-800 text-xl rounded-lg font-oswald">
+            Explore Books
+          </button>
+        </Link>
       </div>
     </section>
   );

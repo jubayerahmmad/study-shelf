@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 
 const AllBooks = () => {
   const books = useLoaderData();
-  console.log(books);
+  // console.log(books);
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
       <div>
@@ -46,7 +46,7 @@ const AllBooks = () => {
                       <ReactStars
                         count={5}
                         isHalf={true}
-                        value={book.rating}
+                        value={Number(book.rating)}
                         edit={false}
                         size={24}
                         activeColor="#ffd700"
@@ -65,6 +65,9 @@ const AllBooks = () => {
                   >
                     Update Book
                   </Link>
+                  <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold">
+                    Quantity: {book.quantity}
+                  </h5>
                 </div>
               </div>
             </div>
