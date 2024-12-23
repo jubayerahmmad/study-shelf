@@ -24,7 +24,7 @@ const BookDetails = () => {
     const returnDate = form.returnDate.value;
 
     const borrowedBook = {
-      name,
+      userName: name,
       email,
       borrowDate,
       returnDate,
@@ -33,6 +33,7 @@ const BookDetails = () => {
       image: book?.image,
       category: book.category,
     };
+    console.log(borrowedBook);
 
     try {
       await axios

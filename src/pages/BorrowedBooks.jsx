@@ -5,18 +5,26 @@ import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
 import noDataAnimation from "../assets/noData.json";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const BorrowedBooks = () => {
-  const { user } = useAuth();
+  const { user, logoutUser } = useAuth();
   const [books, setBooks] = useState([]);
   // console.log(books);
 
   useEffect(() => {
     axios
-      .get(`https://study-shelf-server.vercel.app/borrowedBooks/${user?.email}`)
+      .get(`http://localhost:5000/borrowedBooks/cucu@cubarsi.com`, {
+        withCredentials: true,
+      })
       .then((res) => {
         // console.log(res.data);
         setBooks(res.data);
+      })
+      .catch((err) => {
+        // console.log(err);
+        toast.error(err.response.data);
+        logoutUser();
       });
   }, [user?.email]);
 
@@ -80,8 +88,13 @@ const BorrowedBooks = () => {
                     alt="bookImage"
                   />
                 </figure>
-                <div className="card-body">
-                  <h2 className="card-title">{book.name}</h2>
+                <div className="card-body w-full">
+                  <h2 className="card-title">
+                    {book.name}{" "}
+                    <span className="badge badge-accent badge-lg">
+                      {book.category}
+                    </span>
+                  </h2>
 
                   <div className="lg:flex items-center gap-4 space-y-4 lg:space-y-0">
                     <p className="text-gray-700">
