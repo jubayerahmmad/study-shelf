@@ -5,8 +5,17 @@ import TableView from "../components/TableView";
 import CardView from "../components/CardView";
 
 const AllBooks = () => {
-  const books = useLoaderData();
+  const loadedBooks = useLoaderData();
+  const [books, setBooks] = useState(loadedBooks);
   const [tableView, setTableView] = useState(false);
+
+  const filteredBooks = books.filter((book) => book.quantity > 0);
+  // console.log(filteredBooks);
+  // console.log(books);
+
+  const handleShowAvailable = () => {
+    setBooks(filteredBooks);
+  };
 
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
@@ -21,30 +30,45 @@ const AllBooks = () => {
               Collections
             </span>
           </h2>
+        </div>
 
+        <div className="flex gap-2 items-center justify-between lg:justify-center mb-6">
           {/* toggle view */}
-          <div className="inline-flex rounded-md shadow-sm mb-6" role="group">
-            <button
-              onClick={() => setTableView(false)}
-              className={`px-4 py-2 text-sm lg:text-lg font-medium text-gray-900 border border-purple-900 rounded-s-lg ${
-                tableView ? undefined : "bg-purple-900 text-white"
-              }`}
+          <div>
+            <select
+              className="bg-purple-800 text-white rounded-md p-2"
+              onChange={(e) =>
+                setTableView(e.target.value === "Table View" ? !tableView : "")
+              }
             >
-              Card View
-            </button>
+              <option value="Card View">Card View</option>
+              <option value="Table View">Table View</option>
+            </select>
+          </div>
+
+          <div>
+            {/* <select
+              className="bg-purple-800 text-white rounded-md p-2"
+              onChange={(e) =>
+                setBooks(
+                  e.target.value === "Show Available Books"
+                    ? filteredBooks
+                    : loadedBooks
+                )
+              }
+            >
+              <option value="All Books">All Books</option>
+              <option value="Show Available Books">Show Available Books</option>
+            </select> */}
 
             <button
-              onClick={() => setTableView(true)}
-              className={`px-4 py-2 text-sm lg:text-lg font-medium text-gray-900 border border-gray-900 rounded-e-lg ${
-                tableView ? "bg-purple-900 text-white" : undefined
-              }`}
+              onClick={handleShowAvailable}
+              className={`px-4 py-1.5 text-lg font-medium text-gray-900 border border-purple-900 rounded-lg`}
             >
-              Table View
+              Show Available Books
             </button>
           </div>
         </div>
-
-        {/* Dropdown filter */}
 
         {tableView ? (
           <TableView books={books}></TableView>

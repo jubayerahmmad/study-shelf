@@ -49,7 +49,7 @@ const CardView = ({ books }) => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between my-4">
+              <div className="flex items-center justify-between mt-4">
                 <div className="flex items-center gap-2">
                   <Link
                     to={`/update-book/${book._id}`}

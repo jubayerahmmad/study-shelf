@@ -55,9 +55,9 @@ const TableView = ({ books }) => {
                     >
                       <FaInfoCircle></FaInfoCircle>
                     </Link>
-                    <button className="btn btn-sm btn-outline text-red-500 hover:bg-red-500 hover:border-red-500">
+                    {/* <button className="btn btn-sm btn-outline text-red-500 hover:bg-red-500 hover:border-red-500">
                       <MdDelete></MdDelete>
-                    </button>
+                    </button> */}
                   </div>
                 </td>
               </tr>
