@@ -4,10 +4,9 @@ Study Shelf is a web-based library management system designed to streamline the 
 
 ## Features
 
-- Book Management: Add, edit, and remove books from the library's collection.
-- Borrowing System: Facilitate borrowing and returning of books, including due date management and fine calculation.
-- Search and Discovery: Implement a robust search function for patrons to find books by title, author, genre, and more.
-- User Authentication: Secure login and authentication for librarians and patrons.
+- Book Management: Manage the library's collection by adding, editing, and removing books.
+- Borrowing System: Simplify borrowing and returning books.
+- User Authentication: Ensure secure access for librarians through robust login and authentication processes.
 
 ## Technologies Used
 
@@ -15,6 +14,13 @@ Study Shelf is a web-based library management system designed to streamline the 
 - Backend: Node.js, Express.js
 - Database: MongoDB
 
-## Development Status
+## Libraries Used
 
-Study Shelf is currently under development. This project is open to contributions and feedback from the community.
+- Lottie: Used for animations.
+- React Icons: Used for icons in the components.
+- React Rating Stars Component: Used for displaying book ratings.
+- React Router DOM: Used for routing in the application.
+- Axios: Used for making HTTP requests.
+- SweetAlert2: Used for displaying alert messages.
+- Helmet: Used for managing document head in React.
+- React Fast Marquee: Used for creating a marquee effect in the BookCategories component.

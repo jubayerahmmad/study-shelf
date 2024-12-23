@@ -36,18 +36,18 @@ const Navbar = () => {
 
         <ul className="items-center gap-12 text-2xl  xl:flex hidden font-semibold ">
           <NavLink to="/">
-            <li className="hover:text-[#3c0c80]">Home</li>
+            <li>Home</li>
           </NavLink>
           <NavLink to="/allBooks">
-            <li className="hover:text-[#3c0c80]">All Books</li>
+            <li>All Books</li>
           </NavLink>
           <NavLink to="/addBooks">
-            <li className="hover:text-[#3c0c80]">Add Books</li>
+            <li>Add Books</li>
           </NavLink>
           {user && (
             <>
               <NavLink to="/borrowedBooks">
-                <li className="hover:text-[#3c0c80]">Borrowed Books</li>
+                <li>Borrowed Books</li>
               </NavLink>
             </>
           )}
@@ -151,7 +151,7 @@ const Navbar = () => {
             {user && (
               <>
                 <NavLink to="/borrowedBooks">
-                  <li className="hover:text-[#3c0c80]">Borrowed Books</li>
+                  <li>Borrowed Books</li>
                 </NavLink>
               </>
             )}

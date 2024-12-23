@@ -9,6 +9,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 
@@ -50,10 +51,30 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
+      if (currentUser?.email) {
         setUser(currentUser);
+        // generate token
+        axios
+          .post(
+            "https://study-shelf-server.vercel.app/jwt",
+            { email: currentUser?.email },
+            { withCredentials: true }
+          )
+          .then((res) => {
+            // console.log(res.data);
+          });
       } else {
         setUser(null);
+        // clear cookie from browser upon logout
+        axios
+          .post(
+            "https://study-shelf-server.vercel.app/logout",
+            {},
+            { withCredentials: true }
+          )
+          .then((res) => {
+            // console.log(res.data);
+          });
       }
       setLoader(false);
     });

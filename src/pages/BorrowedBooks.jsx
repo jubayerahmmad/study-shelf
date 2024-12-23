@@ -39,7 +39,7 @@ const BorrowedBooks = () => {
             // console.log(data);
             if (data.deletedCount) {
               Swal.fire({
-                title: "Deleted!",
+                title: "Returned!",
                 text: "Your Book has been returned.",
                 icon: "success",
               });
