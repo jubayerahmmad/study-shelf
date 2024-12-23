@@ -56,8 +56,8 @@ const AuthProvider = ({ children }) => {
         // generate token
         axios
           .post(
-            "http://localhost:5000/jwt",
-            // "https://study-shelf-server.vercel.app/jwt",
+            // "http://localhost:5000/jwt",
+            "https://study-shelf-server.vercel.app/jwt",
             { email: currentUser?.email },
             { withCredentials: true }
           )
@@ -69,8 +69,8 @@ const AuthProvider = ({ children }) => {
         // clear cookie from browser upon logout
         axios
           .post(
-            "http://localhost:5000/logout",
-            // "https://study-shelf-server.vercel.app/logout",
+            // "http://localhost:5000/logout",
+            "https://study-shelf-server.vercel.app/logout",
             {},
             { withCredentials: true }
           )

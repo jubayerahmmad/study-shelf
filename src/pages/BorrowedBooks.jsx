@@ -6,17 +6,18 @@ import Lottie from "lottie-react";
 import noDataAnimation from "../assets/noData.json";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const BorrowedBooks = () => {
-  const { user, logoutUser } = useAuth();
+  const { user } = useAuth();
   const [books, setBooks] = useState([]);
+  const axiosInstance = useAxiosSecure();
+
   // console.log(books);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/borrowedBooks/cucu@cubarsi.com`, {
-        withCredentials: true,
-      })
+    axiosInstance
+      .get(`/borrowedBooks/${user?.email}`)
       .then((res) => {
         // console.log(res.data);
         setBooks(res.data);
@@ -24,7 +25,6 @@ const BorrowedBooks = () => {
       .catch((err) => {
         // console.log(err);
         toast.error(err.response.data);
-        logoutUser();
       });
   }, [user?.email]);
 
