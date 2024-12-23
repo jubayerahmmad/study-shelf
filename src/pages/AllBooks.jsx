@@ -1,7 +1,5 @@
-import { Link, useLoaderData } from "react-router-dom";
-
+import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-
 import { useState } from "react";
 import TableView from "../components/TableView";
 import CardView from "../components/CardView";
@@ -9,7 +7,7 @@ import CardView from "../components/CardView";
 const AllBooks = () => {
   const books = useLoaderData();
   const [tableView, setTableView] = useState(false);
-  // console.log(books);
+
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
       <Helmet>
@@ -27,20 +25,18 @@ const AllBooks = () => {
           {/* toggle view */}
           <div className="inline-flex rounded-md shadow-sm mb-6" role="group">
             <button
-              type="button"
               onClick={() => setTableView(false)}
-              className={`px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg ${
-                tableView ? "" : "bg-gray-900 text-white"
+              className={`px-4 py-2 text-sm lg:text-lg font-medium text-gray-900 border border-purple-900 rounded-s-lg ${
+                tableView ? undefined : "bg-purple-900 text-white"
               }`}
             >
               Card View
             </button>
 
             <button
-              type="button"
               onClick={() => setTableView(true)}
-              className={`px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-lg ${
-                tableView ? "bg-gray-900 text-white" : ""
+              className={`px-4 py-2 text-sm lg:text-lg font-medium text-gray-900 border border-gray-900 rounded-e-lg ${
+                tableView ? "bg-purple-900 text-white" : undefined
               }`}
             >
               Table View

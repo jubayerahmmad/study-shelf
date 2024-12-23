@@ -16,7 +16,7 @@ const AboutUs = () => {
 
       {/* Mission & Vision Section */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-lg">
+        <div className="flex items-center justify-center p-6 bg-white rounded-lg drop-shadow-[10px_25px_35px_rgba(125,26,153,0.25)]">
           <div className="text-center">
             <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
             <p className="text-lg text-gray-600">
@@ -25,7 +25,7 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center justify-center p-6 bg-white rounded-lg shadow-lg">
+        <div className="flex items-center justify-center p-6 bg-white rounded-lg drop-shadow-[10px_25px_35px_rgba(125,26,153,0.25)]">
           <div className="text-center">
             <h2 className="text-3xl font-semibold mb-4">Our Vision</h2>
             <p className="text-lg text-gray-600">
@@ -38,14 +38,14 @@ const AboutUs = () => {
 
       {/* Why Choose Us */}
       <div className="max-w-5xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div className="card shadow-lg bg-white text-black rounded-lg text-center p-6">
+        <div className="card bg-white text-black rounded-lg drop-shadow-[10px_25px_35px_rgba(125,26,153,0.25)] text-center p-6">
           <h3 className="text-2xl font-semibold mb-4">Extensive Collection</h3>
           <p className="text-lg text-gray-600">
             Over 10,000 books across various categories available for easy
             borrowing.
           </p>
         </div>
-        <div className="card shadow-lg bg-white text-black rounded-lg text-center p-6">
+        <div className="card bg-white text-black rounded-lg drop-shadow-[10px_25px_35px_rgba(125,26,153,0.25)] text-center p-6">
           <h3 className="text-2xl font-semibold mb-4">
             User-Friendly Interface
           </h3>
@@ -54,7 +54,7 @@ const AboutUs = () => {
             features.
           </p>
         </div>
-        <div className="card shadow-lg bg-white text-black rounded-lg text-center p-6">
+        <div className="card bg-white text-black rounded-lg drop-shadow-[10px_25px_35px_rgba(125,26,153,0.25)] text-center p-6">
           <h3 className="text-2xl font-semibold mb-4">Book Recommendations</h3>
           <p className="text-lg text-gray-600">
             Get personalized book suggestions based on your reading preferences.

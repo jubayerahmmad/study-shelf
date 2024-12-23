@@ -11,7 +11,7 @@ const CardView = ({ books }) => {
         {books?.map((book) => (
           <div
             key={book._id}
-            className="w-full bg-white border border-gray-200 rounded-lg shadow"
+            className="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
           >
             <img
               className="rounded-t-lg w-full h-96 object-contain"
@@ -63,9 +63,9 @@ const CardView = ({ books }) => {
                   >
                     <FaInfoCircle size={20}></FaInfoCircle>
                   </Link>
-                  <button className="btn btn-outline text-red-500 hover:bg-red-500 hover:border-red-500">
+                  {/* <button className="btn btn-outline text-red-500 hover:bg-red-500 hover:border-red-500">
                     <MdDelete size={20}></MdDelete>
-                  </button>
+                  </button> */}
                 </div>
                 <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold font-sans flex items-center gap-1">
                   <MdNumbers></MdNumbers> <span>{book.quantity}</span>

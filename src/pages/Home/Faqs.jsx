@@ -37,10 +37,10 @@ const Faqs = () => {
   return (
     <div className="max-w-7xl mx-auto my-6 p-4">
       <div className="text-center my-6 space-y-3">
-        <h1 className="text-4xl lg:text-6xl font-oswald font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+        <h1 className="text-3xl lg:text-6xl font-oswald font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
           Frequently Asked Questions
         </h1>
-        <p className="text-lg text-gray-600 font-merriweather">
+        <p className="text-xs lg:text-lg text-gray-600 font-merriweather">
           Check our frequently asked questions to find answers to common
           queries.
         </p>
