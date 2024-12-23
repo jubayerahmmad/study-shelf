@@ -75,7 +75,10 @@ const UpdateBooks = () => {
           />
         </div>
         <div className="lg:w-2/3 p-6">
-          <form onSubmit={handleUpdate} className="w-full mx-auto">
+          <form
+            onSubmit={handleUpdate}
+            className="w-full mx-auto font-merriweather"
+          >
             {/* Image */}
             <div className="relative z-0 w-full mb-5 group">
               <input

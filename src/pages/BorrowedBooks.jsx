@@ -57,9 +57,11 @@ const BorrowedBooks = () => {
         <title>Borrowed Books - Study Shelf</title>
       </Helmet>
       <div className="text-center my-4">
-        <h2 className="text-4xl">
+        <h2 className="text-4xl font-bold">
           Books Borrowed by{" "}
-          <span className="text-purple-700">{user.displayName}</span>
+          <span className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+            {user.displayName}
+          </span>
         </h2>
       </div>
       {/* card */}
@@ -96,7 +98,7 @@ const BorrowedBooks = () => {
                     </p>
                     <button
                       onClick={() => handleReturn(book?._id)}
-                      className="btn bg-purple-700 hover:bg-purple-950 text-white font-merriweather"
+                      className="btn btn-outline text-red-500 hover:bg-red-500 font-merriweather hover:border-red-500"
                     >
                       Return
                     </button>

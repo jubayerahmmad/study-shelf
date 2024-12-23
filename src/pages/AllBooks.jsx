@@ -1,6 +1,9 @@
 import { Link, useLoaderData } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { Helmet } from "react-helmet-async";
+import { BiEditAlt } from "react-icons/bi";
+import { MdDelete, MdNumbers } from "react-icons/md";
+import { FaInfoCircle } from "react-icons/fa";
 
 const AllBooks = () => {
   const books = useLoaderData();
@@ -14,7 +17,9 @@ const AllBooks = () => {
         <div className="text-center">
           <h2 className="text-3xl lg:text-5xl font-bold mb-8">
             Explore Our{" "}
-            <span className="font-pacifico text-purple-900">Collections</span>
+            <span className="font-pacifico bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+              Collections
+            </span>
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -60,15 +65,26 @@ const AllBooks = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
-                  <Link
-                    to={`/update-book/${book._id}`}
-                    className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
-                  >
-                    Update Book
-                  </Link>
-                  <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold">
-                    Quantity: {book.quantity}
+                <div className="flex items-center justify-between my-4">
+                  <div className="flex items-center gap-2">
+                    <Link
+                      to={`/update-book/${book._id}`}
+                      className="btn text-white h bg-purple-700 hover:bg-purple-800"
+                    >
+                      <BiEditAlt size={20}></BiEditAlt>
+                    </Link>
+                    <Link
+                      to={`/bookDetails/${book._id}`}
+                      className="btn btn-outline text-purple-700 hover:bg-purple-800"
+                    >
+                      <FaInfoCircle size={20}></FaInfoCircle>
+                    </Link>
+                    <button className="btn btn-outline text-red-500 hover:bg-red-500 hover:border-red-500">
+                      <MdDelete size={20}></MdDelete>
+                    </button>
+                  </div>
+                  <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold font-sans flex items-center gap-1">
+                    <MdNumbers></MdNumbers> <span>{book.quantity}</span>
                   </h5>
                 </div>
               </div>

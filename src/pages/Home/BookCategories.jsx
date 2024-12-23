@@ -26,7 +26,7 @@ const BookCategories = () => {
   return (
     <div className="max-w-7xl mx-auto my-6 p-4">
       <div className="text-center my-6 space-y-3">
-        <h1 className="text-4xl lg:text-6xl font-oswald font-bold">
+        <h1 className="text-4xl lg:text-6xl font-oswald font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
           Book Categories
         </h1>
         <p className="text-lg text-gray-600 font-merriweather">

@@ -22,11 +22,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="px-6 py-4 bg-gray-100 w-full">
+    <div className="px-6 py-4 w-full bg-gray-200">
       <nav className="flex items-center justify-between  relative lg:w-10/12 mx-auto boxShadow font-oswald">
-        <Link to="/" className="btn shadow-none">
-          <img src={logo} alt="logo" className="w-8 lg:w-12 object-cover" />
-          <span className="font-pacifico text-xl lg:text-2xl text-purple-900">
+        <Link
+          to="/"
+          className="btn shadow-none hover:bg-transparent bg-transparent border-none outline-none"
+        >
+          <img src={logo} alt="logo" className="w-6 lg:w-12 object-cover" />
+          <span className="font-pacifico text-lg lg:text-2xl text-purple-900">
             Study Shelf
           </span>
         </Link>
@@ -89,7 +92,7 @@ const Navbar = () => {
               <Link>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-sm btn-outline lg:btn-md font-semibold text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 "
+                  className="btn btn-xs btn-outline lg:btn-md font-semibold text-sm lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 "
                 >
                   Log Out
                 </button>
@@ -98,13 +101,13 @@ const Navbar = () => {
           ) : (
             <>
               <Link to="/login">
-                <button className="btn btn-sm btn-outline lg:btn-md font-semibold text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80]  transition-all duration-300 ">
+                <button className="btn btn-xs btn-outline lg:btn-md font-semibold text-sm lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80]  transition-all duration-300 ">
                   Login
                 </button>
               </Link>
 
               <Link to="/register">
-                <button className="btn btn-sm btn-outline lg:btn-md font-semibold text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
+                <button className="btn btn-xs btn-outline lg:btn-md font-semibold text-sm lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
                   Register
                 </button>
               </Link>

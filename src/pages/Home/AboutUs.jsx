@@ -6,7 +6,10 @@ const AboutUs = () => {
     <section className="py-16 px-6 bg-gradient-to-t from-slate-50 to-gray-200">
       <div className="text-center space-y-2 my-6">
         <h1 className="text-4xl lg:text-6xl font-oswald font-bold">
-          Welcome to <span className="text-purple-700">StudyShelf</span>
+          Welcome to{" "}
+          <span className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+            Study Shelf
+          </span>
         </h1>
         <p className="text-lg">Empowering Readers to Explore Knowledge</p>
       </div>

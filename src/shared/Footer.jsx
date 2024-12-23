@@ -1,8 +1,15 @@
 import logo from "../assets/logo.png";
+import bg from "../assets/footer-bg.png";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-gray-100 font-oswald">
+    <div
+      className="w-full font-oswald"
+      style={{
+        backgroundImage: `url(${bg})`,
+        backgroundBlendMode: "color-burn",
+      }}
+    >
       <footer className="footer lg:w-10/12 mx-auto p-10">
         <aside>
           <img className="w-20" src={logo} alt="Study Shelf Logo" />
