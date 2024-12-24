@@ -45,7 +45,7 @@ const Faqs = () => {
           queries.
         </p>
       </div>
-      <div className="lg:flex gap-4 items-center" data-aos="zoom-in">
+      <div className="lg:flex gap-4 items-center">
         {/* Lottie */}
         <Lottie
           animationData={faqAnimation} // Path to your animation JSON
@@ -56,7 +56,11 @@ const Faqs = () => {
         {/* Accordion */}
         <div className="flex gap-3 flex-col w-full">
           {accordionData?.map((accordion, index) => (
-            <article key={index} className="bg-[#e5eaf2] rounded">
+            <article
+              key={index}
+              className="bg-[#e5eaf2] rounded"
+              data-aos="zoom-in"
+            >
               <div
                 className="flex gap-2 cursor-pointer items-center justify-between w-full bg-purple-950 p-3 rounded"
                 onClick={() => handlebgAccording(index)}
