@@ -33,7 +33,7 @@ const BookDetails = () => {
       image: book?.image,
       category: book.category,
     };
-    console.log(borrowedBook);
+    // console.log(borrowedBook);
 
     try {
       await axios

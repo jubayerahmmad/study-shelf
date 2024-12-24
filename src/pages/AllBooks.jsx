@@ -1,20 +1,30 @@
-import { useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableView from "../components/TableView";
 import CardView from "../components/CardView";
+import axios from "axios";
 
 const AllBooks = () => {
-  const loadedBooks = useLoaderData();
-  const [books, setBooks] = useState(loadedBooks);
+  // const loadedBooks = useLoaderData();
+  const [books, setBooks] = useState([]);
   const [tableView, setTableView] = useState(false);
 
-  const filteredBooks = books.filter((book) => book.quantity > 0);
+  useEffect(() => {
+    axios.get("https://study-shelf-server.vercel.app/allBooks").then((res) => {
+      setBooks(res.data);
+    });
+  }, []);
+
+  // const filteredBooks = books.filter((book) => book.quantity > 0);
   // console.log(filteredBooks);
   // console.log(books);
 
   const handleShowAvailable = () => {
-    setBooks(filteredBooks);
+    axios
+      .get("https://study-shelf-server.vercel.app/allBooks?available=true")
+      .then((res) => {
+        setBooks(res.data);
+      });
   };
 
   return (

@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             <AllBooks></AllBooks>
           </ProtectedRoute>
         ),
-        loader: () => fetch("https://study-shelf-server.vercel.app/allBooks"),
+        // loader: () => fetch("https://study-shelf-server.vercel.app/allBooks"),
       },
       {
         path: "/update-book/:id",
