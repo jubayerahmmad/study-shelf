@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/login-animation.json";
-import { FaGoogle } from "react-icons/fa6";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { loginUser, googleLogin } = useAuth();
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { state } = useLocation();
   // console.log(state);
@@ -87,7 +88,7 @@ const Login = () => {
             </div>
 
             {/* Password Input */}
-            <div>
+            <div className="relative">
               <label
                 htmlFor="password"
                 className="text-sm font-medium text-gray-600"
@@ -95,11 +96,22 @@ const Login = () => {
                 Password
               </label>
               <input
-                type="password"
+                type={`${showPassword ? "text" : "password"}`}
                 name="password"
                 required
                 className="w-full px-5 py-3 mt-2 border border-gray-300 border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-600 transition duration-200"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute bottom-12 right-4"
+              >
+                {showPassword ? (
+                  <FaEyeSlash size={20}></FaEyeSlash>
+                ) : (
+                  <FaEye size={20}></FaEye>
+                )}
+              </button>
               <label className="label ">
                 <a href="#" className="label-text-alt link link-hover">
                   Forgot password?

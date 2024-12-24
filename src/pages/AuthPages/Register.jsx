@@ -1,18 +1,17 @@
 import Lottie from "lottie-react";
 import registerAnimation from "../../assets/register-animation.json";
-import { FaGoogle } from "react-icons/fa6";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
-// import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
+import { useState } from "react";
+
 import useAuth from "../../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { registerUser, updateUser, googleLogin } = useAuth();
   const [error, setError] = useState("");
-
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -149,7 +148,7 @@ const Register = () => {
             </div>
 
             {/* Password Input */}
-            <div>
+            <div className="relative">
               <label
                 htmlFor="password"
                 className="text-sm font-medium text-gray-600 "
@@ -157,11 +156,22 @@ const Register = () => {
                 Password
               </label>
               <input
-                type="password"
+                type={`${showPassword ? "text" : "password"}`}
                 name="password"
                 required
                 className="w-full px-5 py-3 mt-2 border border-gray-300 border-none rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-purple-600 transition duration-200"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute bottom-4 right-4"
+              >
+                {showPassword ? (
+                  <FaEyeSlash size={20}></FaEyeSlash>
+                ) : (
+                  <FaEye size={20}></FaEye>
+                )}
+              </button>
             </div>
             {error && (
               <p className="font-bold font-merriweather text-red-500">
