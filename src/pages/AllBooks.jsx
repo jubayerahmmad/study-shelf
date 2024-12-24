@@ -24,7 +24,7 @@ const AllBooks = () => {
       </Helmet>
       <div>
         <div className="text-center">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-8">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-8 animate__animated animate__fadeInDown">
             Explore Our{" "}
             <span className="font-pacifico bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
               Collections
@@ -32,7 +32,7 @@ const AllBooks = () => {
           </h2>
         </div>
 
-        <div className="flex gap-2 items-center justify-between lg:justify-center mb-6">
+        <div className="flex gap-2 items-center justify-between lg:justify-center mb-6 animate__animated animate__zoomIn">
           {/* toggle view */}
           <div>
             <select

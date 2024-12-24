@@ -45,7 +45,7 @@ const Faqs = () => {
           queries.
         </p>
       </div>
-      <div className="lg:flex gap-4 items-center">
+      <div className="lg:flex gap-4 items-center" data-aos="zoom-in">
         {/* Lottie */}
         <Lottie
           animationData={faqAnimation} // Path to your animation JSON

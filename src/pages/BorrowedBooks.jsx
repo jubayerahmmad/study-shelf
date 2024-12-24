@@ -80,6 +80,7 @@ const BorrowedBooks = () => {
               <div
                 key={book._id}
                 className="card items-center lg:card-side bg-base-100 shadow-xl border border-purple-200"
+                data-aos="zoom-in-right"
               >
                 <figure>
                   <img

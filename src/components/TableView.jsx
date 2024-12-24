@@ -10,7 +10,7 @@ const TableView = ({ books }) => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr data-aos="zoom-in-right">
               <th>Book Info</th>
               <th>Category</th>
               <th>Quantity</th>
@@ -21,7 +21,7 @@ const TableView = ({ books }) => {
             {/* row 1 */}
 
             {books.map((book) => (
-              <tr key={book._id}>
+              <tr key={book._id} data-aos="zoom-in">
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">

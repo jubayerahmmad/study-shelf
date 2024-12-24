@@ -62,31 +62,40 @@ const Navbar = () => {
                   data-tooltip-id="avatar-tooltip"
                   data-tooltip-offset={10}
                 >
-                  <img referrerPolicy="no-referrer" src={`${user?.photoURL}`} />
+                  <img
+                    referrerPolicy="no-referrer"
+                    src={`${user?.photoURL}`}
+                    alt="user photo"
+                  />
                 </div>
               </div>
               {/* Tooltip with dropdown */}
               <Tooltip
                 id="avatar-tooltip"
                 place="right"
+                variant="info"
                 className="z-50"
                 clickable={true}
-                effect="solid"
                 delayHide={100}
                 offset={{ right: 20 }}
               >
-                <div className="bg-white border border-gray-200 rounded shadow-lg w-40 p-4">
-                  <p className="text-gray-700 font-semibold mb-2">
+                <div className="rounded shadow-lg w-40 p-2 text-center space-y-3">
+                  <div className="flex justify-center my-2">
+                    <img
+                      className="rounded-full h-14 w-14 object-cover ring-purple-700 ring-offset-base-100 ring ring-offset-2"
+                      src={user.photoURL}
+                      alt="user image"
+                    />
+                  </div>
+                  <p className="text-white font-semibold mb-2">
                     {user.displayName}
                   </p>
-                  <Link>
-                    <button
-                      onClick={handleLogOut}
-                      className="btn btn-sm btn-outline w-full lg:btn-md font-semibold text-lg text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 "
-                    >
-                      Log Out
-                    </button>
-                  </Link>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-sm w-full bg-purple-600 font-semibold text-lg text-white hover:bg-[#3c0c80] border-none"
+                  >
+                    Log Out
+                  </button>
                 </div>
               </Tooltip>
               <Link>

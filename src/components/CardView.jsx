@@ -1,4 +1,5 @@
 import { BiEditAlt } from "react-icons/bi";
+import { motion } from "motion/react";
 import { MdDelete, MdNumbers } from "react-icons/md";
 import { FaInfoCircle } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
@@ -11,6 +12,7 @@ const CardView = ({ books }) => {
         {books?.map((book) => (
           <div
             key={book._id}
+            data-aos="fade-right"
             className="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
           >
             <img
@@ -27,9 +29,19 @@ const CardView = ({ books }) => {
 
                 <h3 className="font-merriweather space-y-3 space-x-2">
                   By <span className="text-purple-600">{book.authorName}</span>{" "}
-                  <span className="badge badge-accent text-white">
+                  <motion.span
+                    animate={{
+                      x: [0, 5, 0],
+                      scale: [1, 1.05, 1],
+                      color: ["#fff ", "#5c097c", "#fff"],
+                      backgroundColor: ["#000", "#5c097c"],
+                      border: ["#5c097c"],
+                    }}
+                    transition={{ duration: 3, delay: 1.2, repeat: Infinity }}
+                    className="badge badge-accent text-white"
+                  >
                     {book.category}
-                  </span>
+                  </motion.span>
                 </h3>
 
                 <div className="flex items-center gap-2 mt-2.5 mb-5">

@@ -37,7 +37,10 @@ const AddBooks = () => {
         <title>Add Books - Study Shelf</title>
       </Helmet>
       {/* FORM */}
-      <div className="max-w-6xl mx-auto shadow-xl rounded-md p-4 bg-gradient-to-r from-slate-100 via-purple-100 to-slate-200">
+      <div
+        className="max-w-6xl mx-auto shadow-xl rounded-md p-4 bg-gradient-to-r from-slate-100 via-purple-100 to-slate-200"
+        data-aos="zoom-in"
+      >
         <div className="text-center space-y-3 my-6">
           <h2 className="text-3xl lg:text-5xl font-semibold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
             Add New Book
