@@ -14,12 +14,9 @@ const AddBooks = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    // console.log(data);
     axios
       .post("https://study-shelf-server.vercel.app/add-book", data)
       .then((res) => {
-        // console.log(res.data);
-
         Swal.fire({
           icon: "success",
           title: "New Book Added Successfully",

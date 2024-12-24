@@ -7,7 +7,7 @@ const TableView = ({ books }) => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table bg-purple-50 bg-opacity-80 backdrop-blur-sm">
           {/* head */}
           <thead>
             <tr data-aos="zoom-in-right">

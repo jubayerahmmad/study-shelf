@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { motion } from "motion/react";
 
 const BookDetails = () => {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -14,7 +15,6 @@ const BookDetails = () => {
   const { user } = useAuth();
   const borrowDate = new Date().toISOString().split("T")[0];
   const navigate = useNavigate();
-  // console.log(borrowDate);
 
   const handleBorrow = async (e) => {
     e.preventDefault();
@@ -33,7 +33,6 @@ const BookDetails = () => {
       image: book?.image,
       category: book.category,
     };
-    // console.log(borrowedBook);
 
     try {
       await axios
@@ -42,7 +41,6 @@ const BookDetails = () => {
           borrowedBook
         )
         .then(() => {
-          // console.log(res.data);
           Swal.fire({
             icon: "success",
             title: "Book Borrowed Successfully",
@@ -72,17 +70,33 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="min-h-screen flex flex-col items-center p-2">
       <Helmet>
         <title>Book Details - Study Shelf</title>
       </Helmet>
       <div>
-        <h1 className="text-xl lg:text-4xl font-bold text-gray-800 my-6 text-center">
+        <h1 className="text-2xl lg:text-4xl font-bold text-gray-800 my-6 text-center">
           Check Details of{" "}
-          <span className="font-bold text-purple-800">{book?.name}</span>
+          <motion.p
+            animate={{
+              color: ["#040405", "#8f07d8", "#3d0552", "#bd42ff", "#4c3359"],
+              x: [1, 10, 0],
+            }}
+            transition={{
+              duration: 3,
+              delay: 0.1,
+              repeat: Infinity,
+            }}
+            className="font-extrabold text-purple-800"
+          >
+            {book?.name}
+          </motion.p>
         </h1>
       </div>
-      <div className="p-6 bg-gray-50 rounded-md shadow-md lg:w-8/12 mx-auto mb-6">
+      <div
+        className="p-6 bg-purple-50 bg-opacity-80 backdrop-blur-sm rounded-xl shadow-md lg:w-8/12 mx-auto mb-6"
+        data-aos="zoom-in"
+      >
         <div>
           <img
             src={book?.image}

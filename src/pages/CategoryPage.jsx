@@ -4,9 +4,8 @@ import { Helmet } from "react-helmet-async";
 
 const CategoryPage = () => {
   const { category } = useParams();
-  // console.log(category);
   const books = useLoaderData();
-  // console.log(books);
+
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
       <Helmet>

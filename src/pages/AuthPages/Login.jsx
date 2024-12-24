@@ -13,14 +13,12 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const { state } = useLocation();
-  // console.log(state);
 
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    // console.log(email, password);
 
     loginUser(email, password)
       .then(() => {
@@ -54,7 +52,10 @@ const Login = () => {
   };
 
   return (
-    <div className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8 border border-purple-600 shadow-md">
+    <div
+      className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8 border border-purple-600 shadow-md bg-purple-200 bg-opacity-50"
+      data-aos="zoom-in"
+    >
       <Helmet>
         <title>Login - Study Shelf</title>
       </Helmet>
@@ -141,7 +142,7 @@ const Login = () => {
               onClick={handleGoogleLogin}
               className="w-full btn btn-outline text-purple-700 hover:bg-purple-700 py-3 rounded-full"
             >
-              <FaGoogle></FaGoogle> Login with Google
+              <FaGoogle size={20}></FaGoogle> Login with Google
             </button>
           </div>
         </div>

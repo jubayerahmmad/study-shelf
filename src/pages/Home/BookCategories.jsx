@@ -1,5 +1,6 @@
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 
 const BookCategories = () => {
   const categories = [
@@ -25,7 +26,7 @@ const BookCategories = () => {
     },
   ];
   return (
-    <div className="w-10/12 mx-auto my-6 p-4">
+    <div className="my-6">
       <div className="text-center my-6 space-y-3">
         <h1 className="text-4xl lg:text-6xl font-oswald font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
           Book Categories
@@ -39,7 +40,19 @@ const BookCategories = () => {
         <Marquee gradient={true} gradientWidth={60} pauseOnHover={true}>
           {categories.map((category) => (
             <Link key={category.id} to={`/category/${category.category}`}>
-              <div className="rounded-md shadow-md transition duration-500 mx-6 bg-purple-50 hover:scale-95">
+              <motion.div
+                initial={{
+                  filter: "drop-shadow(0px 10px 15px rgba(125,26,153,0.25))",
+                }}
+                whileHover={{
+                  filter: "drop-shadow(5px 20px 15px rgba(125,26,153,0.65))",
+                }}
+                transition={{
+                  duration: 0.7,
+                  ease: "easeInOut",
+                }}
+                className="rounded-md shadow-md transition duration-500 mx-6 my-12 bg-purple-50 hover:scale-105"
+              >
                 <img
                   src={category.img}
                   alt="image"
@@ -51,31 +64,11 @@ const BookCategories = () => {
                     {category.category}
                   </h1>
                 </div>
-              </div>
+              </motion.div>
             </Link>
           ))}
         </Marquee>
       </div>
-
-      {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {categories.map((category) => (
-          <Link key={category.id} to={`/category/${category.category}`}>
-            <div className="bg-white rounded-md shadow-md relative hover:scale-105 transition duration-500">
-              <img
-                src={category.img}
-                alt="image"
-                className="w-full h-[250px] object-cover rounded-t-md"
-              />
-
-              <div className="p-3">
-                <h1 className="text-2xl font-bold text-black leading-[24px] mt-1.5 font-oswald">
-                  {category.category}
-                </h1>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div> */}
     </div>
   );
 };

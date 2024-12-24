@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="px-6 py-4 w-full bg-gray-200">
+    <div className="px-6 py-4 w-full bg-slate-100 bg-opacity-60 backdrop-blur-sm sticky top-0 z-50">
       <nav className="flex items-center justify-between  relative lg:w-10/12 mx-auto boxShadow font-oswald">
         <Link
           to="/"
@@ -92,7 +92,7 @@ const Navbar = () => {
                   </p>
                   <button
                     onClick={handleLogOut}
-                    className="btn btn-sm w-full bg-purple-600 font-semibold text-lg text-white hover:bg-[#3c0c80] border-none"
+                    className="btn btn-sm w-full bg-purple-600 font-semibold text-lg text-white hover:bg-purple-800 border-none"
                   >
                     Log Out
                   </button>
@@ -101,7 +101,7 @@ const Navbar = () => {
               <Link>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-xs btn-outline lg:btn-md font-semibold text-sm lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 "
+                  className="btn btn-xs lg:btn-md border-none font-semibold text-sm lg:text-lg rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300"
                 >
                   Log Out
                 </button>
@@ -110,13 +110,13 @@ const Navbar = () => {
           ) : (
             <>
               <Link to="/login">
-                <button className="btn btn-xs btn-outline lg:btn-md font-semibold text-sm lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80]  transition-all duration-300 ">
+                <button className="btn btn-xs lg:btn-md border-none font-semibold text-sm lg:text-lg rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300">
                   Login
                 </button>
               </Link>
 
               <Link to="/register">
-                <button className="btn btn-xs btn-outline lg:btn-md font-semibold text-sm lg:text-lg rounded-md text-[#3c0c80] hover:bg-[#3c0c80] transition-all duration-300 ">
+                <button className="btn btn-xs lg:btn-md border-none font-semibold text-sm lg:text-lg rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300">
                   Register
                 </button>
               </Link>
@@ -143,17 +143,17 @@ const Navbar = () => {
         >
           <ul className="items-center gap-12 text-[1rem] text-gray-600 flex flex-col text-xl">
             <NavLink to="/">
-              <li className="hover:border-b-[#3c0c80] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
+              <li className="hover:border-b-purple-800 border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
                 Home
               </li>
             </NavLink>
             <NavLink to="/allBooks">
-              <li className="hover:border-b-[#3c0c80] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
+              <li className="hover:border-b-purple-800 border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
                 All Books
               </li>
             </NavLink>
             <NavLink to="/addBooks">
-              <li className="hover:border-b-[#3c0c80] border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
+              <li className="hover:border-b-purple-800 border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
                 Add Books
               </li>
             </NavLink>

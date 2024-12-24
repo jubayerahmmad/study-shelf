@@ -1,13 +1,18 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import missionImg from "../../assets/icons8-mission-64.png";
+import visionImg from "../../assets/icons8-target-50.png";
+import recommendationImg from "../../assets/icons8-recommended-64.png";
+import uiImg from "../../assets/icons8-web-design-48.png";
+import collectionImg from "../../assets/icons8-book-64.png";
 
 const AboutUs = () => {
   return (
-    <section className="py-16 px-6 bg-gradient-to-t from-slate-50 to-gray-200">
+    <section className="py-16 px-6 bg-slate-100 bg-opacity-50">
       <div className="text-center space-y-2 my-6">
         <h1 className="text-4xl lg:text-6xl font-oswald font-bold">
           Welcome to{" "}
-          <span className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent font-pacifico">
             Study Shelf
           </span>
         </h1>
@@ -30,7 +35,8 @@ const AboutUs = () => {
           className="flex items-center justify-center p-6 bg-white rounded-lg"
           data-aos="fade-right"
         >
-          <div className="">
+          <div className="space-y-4">
+            <img className="w-16" src={missionImg} alt="mission" />
             <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
             <p className="text-lg text-gray-600">
               To provide a seamless platform for book lovers to find, borrow,
@@ -53,7 +59,8 @@ const AboutUs = () => {
           className="flex items-center justify-center p-6 bg-white rounded-lg"
           data-aos="fade-left"
         >
-          <div className="">
+          <div className="space-y-4">
+            <img className="w-16" src={visionImg} alt="vision" />
             <h2 className="text-3xl font-semibold mb-4">Our Vision</h2>
             <p className="text-lg text-gray-600">
               To create a community where readers can access the knowledge and
@@ -79,11 +86,16 @@ const AboutUs = () => {
           className="card bg-white text-black rounded-lg  p-6"
           data-aos="fade-right"
         >
-          <h3 className="text-2xl font-semibold mb-4">Extensive Collection</h3>
-          <p className="text-lg text-gray-600">
-            Over 10,000 books across various categories available for easy
-            borrowing.
-          </p>
+          <div className="space-y-4">
+            <img className="w-16" src={collectionImg} alt="collection" />
+            <h3 className="text-2xl font-semibold mb-4">
+              Extensive Collection
+            </h3>
+            <p className="text-lg text-gray-600">
+              Over 10,000 books across various categories available for easy
+              borrowing.
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -98,15 +110,18 @@ const AboutUs = () => {
             ease: "easeInOut",
           }}
           className="card bg-white text-black rounded-lg  p-6"
-          data-aos="flip-right"
+          data-aos="zoom-in"
         >
-          <h3 className="text-2xl font-semibold mb-4">
-            User-Friendly Interface
-          </h3>
-          <p className="text-lg text-gray-600">
-            A seamless experience with easy-to-use search and navigation
-            features.
-          </p>
+          <div className="space-y-4">
+            <img className="w-16" src={uiImg} alt="design" />
+            <h3 className="text-2xl font-semibold mb-4">
+              User-Friendly Interface
+            </h3>
+            <p className="text-lg text-gray-600">
+              A seamless experience with easy-to-use search and navigation
+              features.
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
@@ -123,10 +138,20 @@ const AboutUs = () => {
           className="card bg-white text-black rounded-lg  p-6"
           data-aos="fade-left"
         >
-          <h3 className="text-2xl font-semibold mb-4">Book Recommendations</h3>
-          <p className="text-lg text-gray-600">
-            Get personalized book suggestions based on your reading preferences.
-          </p>
+          <div className="space-y-4">
+            <img
+              className="w-16"
+              src={recommendationImg}
+              alt="recommendation"
+            />
+            <h3 className="text-2xl font-semibold mb-4">
+              Book Recommendations
+            </h3>
+            <p className="text-lg text-gray-600">
+              Get personalized book suggestions based on your reading
+              preferences.
+            </p>
+          </div>
         </motion.div>
       </div>
 

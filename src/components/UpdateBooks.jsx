@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import updateAnimation from "../assets/update-book-animation.json";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -20,7 +20,6 @@ const UpdateBooks = () => {
     const name = form.name?.value;
     const authorName = form.authorName?.value;
     const rating = form.rating?.value;
-    // console.log(image, name, authorName, rating, categorySelect);
     const updatedData = { image, name, authorName, categorySelect, rating };
     axios
       .patch(
@@ -28,8 +27,6 @@ const UpdateBooks = () => {
         updatedData
       )
       .then((res) => {
-        // console.log(res.data);
-
         if (res.data.modifiedCount) {
           Swal.fire({
             icon: "success",

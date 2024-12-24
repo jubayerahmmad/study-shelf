@@ -61,7 +61,6 @@ const Register = () => {
           });
       })
       .catch((error) => {
-        // console.log(error.code);
         setError(error.code.split("/")[1].split("-").join(" ").toUpperCase());
       });
   };
@@ -83,7 +82,10 @@ const Register = () => {
   };
 
   return (
-    <div className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8  border border-purple-600 shadow-md">
+    <div
+      className="p-6 font-oswald w-10/12 mx-auto rounded-2xl my-8  border border-purple-600 shadow-md bg-purple-200 bg-opacity-50"
+      data-aos="zoom-in"
+    >
       <Helmet>
         <title>Register - Study Shelf</title>
       </Helmet>
@@ -198,7 +200,7 @@ const Register = () => {
               onClick={handleGoogleLogin}
               className="w-full btn btn-outline text-purple-700 hover:bg-purple-700 py-3 rounded-full"
             >
-              <FaGoogle></FaGoogle>Register with Google
+              <FaGoogle size={20}></FaGoogle>Register with Google
             </button>
           </div>
         </div>

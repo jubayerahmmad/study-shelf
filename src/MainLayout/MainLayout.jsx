@@ -4,6 +4,7 @@ import Navbar from "../shared/Navbar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import bg from "../assets/footer-background.png";
 
 const MainLayout = () => {
   useEffect(() => {
@@ -12,7 +13,12 @@ const MainLayout = () => {
     });
   }, []);
   return (
-    <div className="flex flex-col min-h-screen">
+    <div
+      className="flex flex-col min-h-screen"
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
+    >
       <Navbar></Navbar>
       <div className="flex-grow">
         <Outlet></Outlet>

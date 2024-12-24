@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
@@ -13,17 +12,13 @@ const BorrowedBooks = () => {
   const [books, setBooks] = useState([]);
   const axiosInstance = useAxiosSecure();
 
-  // console.log(books);
-
   useEffect(() => {
     axiosInstance
       .get(`/borrowedBooks/${user?.email}`)
       .then((res) => {
-        // console.log(res.data);
         setBooks(res.data);
       })
       .catch((err) => {
-        // console.log(err);
         toast.error(err.response.data);
       });
   }, [user?.email]);
@@ -44,7 +39,6 @@ const BorrowedBooks = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Returned!",
