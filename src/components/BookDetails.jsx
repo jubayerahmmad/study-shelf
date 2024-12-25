@@ -8,6 +8,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { motion } from "motion/react";
+import { useMutation } from "@tanstack/react-query";
 
 const BookDetails = () => {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -15,6 +16,29 @@ const BookDetails = () => {
   const { user } = useAuth();
   const borrowDate = new Date().toISOString().split("T")[0];
   const navigate = useNavigate();
+
+  const { isPending, mutateAsync } = useMutation({
+    mutationFn: async (borrowedBook) => {
+      await axios.post(
+        `https://study-shelf-server.vercel.app/borrowedBooks`,
+        borrowedBook
+      );
+    },
+    onSuccess: () => {
+      Swal.fire({
+        icon: "success",
+        title: "Book Borrowed Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      setisModalOpen(false);
+      navigate("/borrowedBooks");
+    },
+    onError: (err) => {
+      toast.error(err.response.data);
+      setisModalOpen(false);
+    },
+  });
 
   const handleBorrow = async (e) => {
     e.preventDefault();
@@ -34,39 +58,7 @@ const BookDetails = () => {
       category: book.category,
     };
 
-    try {
-      await axios
-        .post(
-          `https://study-shelf-server.vercel.app/borrowedBooks`,
-          borrowedBook
-        )
-        .then(() => {
-          Swal.fire({
-            icon: "success",
-            title: "Book Borrowed Successfully",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          setisModalOpen(false);
-          navigate("/borrowedBooks");
-        });
-    } catch (err) {
-      // console.log(err);
-      toast.error(err.response.data);
-      setisModalOpen(false);
-    }
-    // axios
-    //   .post(`https://study-shelf-server.vercel.app/borrowedBooks`, borrowedBook)
-    //   .then((res) => {
-    //     console.log(res.data);
-    //     Swal.fire({
-    //       icon: "success",
-    //       title: "Book Borrowed Successfully",
-    //       showConfirmButton: false,
-    //       timer: 1500,
-    //     });
-    //     setisModalOpen(false);
-    //   });
+    mutateAsync(borrowedBook);
   };
 
   return (
@@ -105,11 +97,17 @@ const BookDetails = () => {
           />
         </div>
         <div className="space-y-4">
-          <h1 className="text-2xl font-bold text-gray-800 mt-4">
-            {book?.name}
-          </h1>
-          <p className="text-gray-600 mt-1">
-            <span className="font-semibold">Author:</span> {book?.authorName}
+          <div className="lg:flex gap-2 items-center py-2 space-y-2">
+            <h1 className="text-4xl font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+              {book?.name}
+            </h1>
+            <p className="badge badge-accent text-white">
+              Quantity: {book?.quantity}
+            </p>
+          </div>
+          <p className="text-gray-600">
+            By{" "}
+            <span className="font-light font-pacifico">{book?.authorName}</span>
           </p>
           <p className="text-gray-600 mt-1">
             <span className="font-semibold">Category:</span> {book?.category}
@@ -142,9 +140,6 @@ const BookDetails = () => {
             <h2 className="text-lg font-semibold text-gray-800">Content</h2>
             <p className="text-gray-600 mt-1">{book?.bookContent}</p>
           </div>
-          <p className="text-gray-600 mt-4">
-            <span className="font-semibold">Quantity:</span> {book?.quantity}
-          </p>
         </div>
         <div className="my-4">
           <button
@@ -152,7 +147,11 @@ const BookDetails = () => {
             disabled={!book?.quantity}
             className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
           >
-            Borrow This Book
+            {!book?.quantity
+              ? "Not Available"
+              : isPending
+              ? "Borrowing..."
+              : "Borrow This Book"}
           </button>
         </div>
       </div>
@@ -235,7 +234,7 @@ const BookDetails = () => {
               type="submit"
               className="btn text-lg w-full bg-purple-700 hover:bg-purple-950 text-[#fff] rounded-md"
             >
-              Borrow
+              {isPending ? "Borrowing..." : "Borrow"}
             </button>
           </form>
         </div>

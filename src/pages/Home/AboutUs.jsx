@@ -33,7 +33,7 @@ const AboutUs = () => {
             ease: "easeInOut",
           }}
           className="flex items-center justify-center p-6 bg-white rounded-lg"
-          data-aos="fade-right"
+          data-aos="zoom-in"
         >
           <div className="space-y-4">
             <img className="w-16" src={missionImg} alt="mission" />
@@ -57,7 +57,7 @@ const AboutUs = () => {
             ease: "easeInOut",
           }}
           className="flex items-center justify-center p-6 bg-white rounded-lg"
-          data-aos="fade-left"
+          data-aos="zoom-in"
         >
           <div className="space-y-4">
             <img className="w-16" src={visionImg} alt="vision" />
@@ -84,7 +84,7 @@ const AboutUs = () => {
             ease: "easeInOut",
           }}
           className="card bg-white text-black rounded-lg  p-6"
-          data-aos="fade-right"
+          data-aos="zoom-in"
         >
           <div className="space-y-4">
             <img className="w-16" src={collectionImg} alt="collection" />
@@ -136,7 +136,7 @@ const AboutUs = () => {
             ease: "easeInOut",
           }}
           className="card bg-white text-black rounded-lg  p-6"
-          data-aos="fade-left"
+          data-aos="zoom-in"
         >
           <div className="space-y-4">
             <img

@@ -29,25 +29,33 @@ const Navbar = () => {
           className="btn shadow-none hover:bg-transparent bg-transparent border-none outline-none"
         >
           <img src={logo} alt="logo" className="w-6 lg:w-12 object-cover" />
-          <span className="font-pacifico text-lg lg:text-2xl text-purple-900">
+          <span className="font-pacifico text-lg lg:text-2xl bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
             Study Shelf
           </span>
         </Link>
 
         <ul className="items-center gap-12 text-2xl  xl:flex hidden font-semibold ">
           <NavLink to="/">
-            <li>Home</li>
+            <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+              Home
+            </li>
           </NavLink>
           <NavLink to="/allBooks">
-            <li>All Books</li>
+            <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+              All Books
+            </li>
           </NavLink>
           <NavLink to="/addBooks">
-            <li>Add Books</li>
+            <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+              Add Books
+            </li>
           </NavLink>
           {user && (
             <>
               <NavLink to="/borrowedBooks">
-                <li>Borrowed Books</li>
+                <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+                  Borrowed Books
+                </li>
               </NavLink>
             </>
           )}
@@ -140,29 +148,31 @@ const Navbar = () => {
           className={` ${
             mobileSidebarOpen
               ? "opacity-100 z-20"
-              : "top-[-400px] opacity-0 z-[-1]"
+              : "-translate-y-64 opacity-0 z-[-1]"
           } xl:hidden bg-white  boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-1000`}
         >
           <ul className="items-center gap-12 text-[1rem] text-gray-600 flex flex-col text-xl">
             <NavLink to="/">
-              <li className="hover:border-b-purple-800 border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
+              <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
                 Home
               </li>
             </NavLink>
             <NavLink to="/allBooks">
-              <li className="hover:border-b-purple-800 border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
+              <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
                 All Books
               </li>
             </NavLink>
             <NavLink to="/addBooks">
-              <li className="hover:border-b-purple-800 border-b-[2px] border-transparent transition-all duration-500 cursor-pointer">
+              <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
                 Add Books
               </li>
             </NavLink>
             {user && (
               <>
                 <NavLink to="/borrowedBooks">
-                  <li>Borrowed Books</li>
+                  <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+                    Borrowed Books
+                  </li>
                 </NavLink>
               </>
             )}

@@ -41,7 +41,7 @@ const CardView = ({ books, setBooks }) => {
         {books?.map((book) => (
           <div
             key={book._id}
-            data-aos="fade-right"
+            data-aos="zoom-in"
             className="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
           >
             <img

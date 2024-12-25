@@ -1,5 +1,5 @@
+import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -13,20 +13,32 @@ const AddBooks = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    axios
-      .post("https://study-shelf-server.vercel.app/add-book", data)
-      .then((res) => {
-        Swal.fire({
-          icon: "success",
-          title: "New Book Added Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
 
-        reset();
-        navigate("/allBooks");
+  const { isPending, mutateAsync } = useMutation({
+    mutationFn: async (formData) => {
+      await axios.post(
+        "https://study-shelf-server.vercel.app/add-book",
+        formData
+      );
+    },
+    onSuccess: () => {
+      Swal.fire({
+        icon: "success",
+        title: "New Book Added Successfully",
+        showConfirmButton: false,
+        timer: 1500,
       });
+
+      reset();
+      navigate("/allBooks");
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const onSubmit = (data) => {
+    mutateAsync(data);
   };
   return (
     <div className="w-10/12 mx-auto my-6">
@@ -35,7 +47,7 @@ const AddBooks = () => {
       </Helmet>
       {/* FORM */}
       <div
-        className="max-w-6xl mx-auto shadow-xl rounded-md p-4 bg-gradient-to-r from-slate-100 via-purple-100 to-slate-200"
+        className="max-w-6xl mx-auto shadow-xl rounded-md p-4 bg-gradient-to-r from-slate-100 via-purple-200 to-slate-200 bg-opacity-70"
         data-aos="zoom-in"
       >
         <div className="text-center space-y-3 my-6">
@@ -209,7 +221,7 @@ const AddBooks = () => {
             type="submit"
             className="btn text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-center font-merriweather"
           >
-            Add Book
+            {isPending ? "Adding..." : "Add Book"}
           </button>
         </form>
       </div>
