@@ -48,7 +48,7 @@ const AllBooks = () => {
             <select
               className="bg-purple-800 text-white rounded-md p-2"
               onChange={(e) =>
-                setTableView(e.target.value === "Table View" ? !tableView : "")
+                setTableView(e.target.value === "Table View" && !tableView)
               }
             >
               <option value="Card View">Card View</option>

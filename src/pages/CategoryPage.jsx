@@ -62,7 +62,7 @@ const CategoryPage = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mt-6">
                   <Link
                     to={`/bookDetails/${book._id}`}
                     className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

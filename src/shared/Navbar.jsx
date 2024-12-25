@@ -126,20 +126,22 @@ const Navbar = () => {
           {mobileSidebarOpen ? (
             <CgClose
               className="text-3xl mr-1 cursor-pointer xl:hidden flex"
-              onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+              onClick={() => setMobileSidebarOpen(false)}
             />
           ) : (
             <CiMenuFries
               className="text-3xl mr-1 cursor-pointer xl:hidden flex"
-              onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
+              onClick={() => setMobileSidebarOpen(true)}
             />
           )}
         </div>
 
         <aside
           className={` ${
-            mobileSidebarOpen ? "opacity-100 z-20" : "opacity-0 z-[-1]"
-          } xl:hidden bg-white  boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-300`}
+            mobileSidebarOpen
+              ? "opacity-100 z-20"
+              : "-top-[400px] opacity-0 z-[-1]"
+          } xl:hidden bg-white  boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-1000`}
         >
           <ul className="items-center gap-12 text-[1rem] text-gray-600 flex flex-col text-xl">
             <NavLink to="/">
