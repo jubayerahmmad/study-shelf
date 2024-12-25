@@ -98,5 +98,105 @@
     "shortDescription": "Set on the desert planet Arrakis, this epic science fiction novel follows Paul Atreides as his family accepts control of the most valuable substance in the universe.",
     "rating": 4.7,
     "bookContent": "Winner of multiple awards, this masterpiece of science fiction combines politics, religion, and ecology in a complex tale of destiny, power, and human evolution."
+  },
+  {
+    "image": "https://i.ibb.co.com/pPrcm6w/the-west-land.webp",
+    "name": "The Waste Land",
+    "quantity": 3,
+    "authorName": "T.S. Eliot",
+    "category": "Poetry",
+    "shortDescription": "A masterpiece of modernist poetry exploring themes of post-war disillusionment, cultural decay, and spiritual crisis.",
+    "rating": 4.6,
+    "bookContent": "Published in 1922, this groundbreaking poem revolutionized modern poetry with its fragmented narrative style, multiple voices, and rich literary allusions spanning various cultures and traditions."
+  },
+  {
+    "image": "https://i.ibb.co.com/9sm9fRR/steve-jobs-biography.jpg",
+    "name": "Steve Jobs",
+    "quantity": 0,
+    "authorName": "Walter Isaacson",
+    "category": "Biography",
+    "shortDescription": "The official biography of Apple's co-founder, based on more than forty interviews with Jobs himself.",
+    "rating": 4.7,
+    "bookContent": "Based on more than forty interviews conducted over two years, this biography tells the story of the roller-coaster life and intense personality of a creative entrepreneur whose passion for perfection revolutionized six industries."
+  },
+  {
+    "image": "https://i.ibb.co.com/b31VZWj/nameofthewind.webp",
+    "name": "The Name of the Wind",
+    "quantity": 5,
+    "authorName": "Patrick Rothfuss",
+    "category": "Fantasy",
+    "shortDescription": "The intimate narrative of Kvothe, an adventurer and musician, as he recounts his transformation into the most notorious wizard his world has ever seen.",
+    "rating": 4.8,
+    "bookContent": "The first day of the Kingkiller Chronicle tells the story of a young man who grows to become a legend, exploring magic, music, love, and the price of power."
+  },
+  {
+    "image": "https://i.ibb.co.com/P99qHvk/the-republic.jpg",
+    "name": "The Republic",
+    "quantity": 2,
+    "authorName": "Plato",
+    "category": "Philosophy",
+    "shortDescription": "Plato's masterwork on justice, governance, and the nature of the ideal state, written as a dialogue between Socrates and various Athenians.",
+    "rating": 4.5,
+    "bookContent": "One of the most influential works of philosophy in history, examining justice, the role of the philosopher in society, and the nature of the ideal state through Socratic dialogue."
+  },
+  {
+    "image": "https://i.ibb.co.com/sb7BN1y/deathofasalesman.jpg",
+    "name": "Death of a Salesman",
+    "quantity": 0,
+    "authorName": "Arthur Miller",
+    "category": "Drama",
+    "shortDescription": "A tragic play following traveling salesman Willy Loman as he grapples with the American Dream and his perceived failure in life.",
+    "rating": 4.6,
+    "bookContent": "This Pulitzer Prize-winning play examines the cost of blind faith in the American Dream and the tragic consequences of a life spent pursuing material success."
+  },
+  {
+    "image": "https://i.ibb.co.com/p2wktvx/leavesofgrass.jpg",
+    "name": "Leaves of Grass",
+    "quantity": 1,
+    "authorName": "Walt Whitman",
+    "category": "Poetry",
+    "shortDescription": "A groundbreaking collection of poetry celebrating the American experience, democracy, nature, love, and friendship.",
+    "rating": 4.7,
+    "bookContent": "First published in 1855 and continuously revised until the author's death, this collection revolutionized American poetry with its free verse style and celebration of the individual."
+  },
+  {
+    "image": "https://i.ibb.co.com/Dg7VKH9/mistborn-boxed-set-i-mistborn-the-well-of-ascension-the-hero-of-ages.jpg",
+    "name": "The Mistborn Trilogy",
+    "quantity": 4,
+    "authorName": "Brandon Sanderson",
+    "category": "Fantasy",
+    "shortDescription": "In a world where ash falls from the sky and evil lords rule through magical and political power, a street thief discovers she has the power to change everything.",
+    "rating": 4.9,
+    "bookContent": "This epic fantasy series combines intricate magic systems, political intrigue, and heist storylines in a world where the dark lord won and a new hero must rise from the ashes."
+  },
+  {
+    "image": "https://i.ibb.co.com/pQkw7mz/beyond-good-and-evil-original-imafj6g7mabr83jg.webp",
+    "name": "Beyond Good and Evil",
+    "quantity": 0,
+    "authorName": "Friedrich Nietzsche",
+    "category": "Philosophy",
+    "shortDescription": "A philosophical work that expands the ideas of Nietzsche's previous work, questioning traditional morality and proposing new values.",
+    "rating": 4.5,
+    "bookContent": "Published in 1886, this foundational text challenges traditional morality and philosophical assumptions, proposing a new approach to understanding human values and culture."
+  },
+  {
+    "image": "https://i.ibb.co.com/tMMX79Y/long-walk-to-freedom.jpg",
+    "name": "Long Walk to Freedom",
+    "quantity": 2,
+    "authorName": "Nelson Mandela",
+    "category": "Biography",
+    "shortDescription": "The autobiography of Nelson Mandela, chronicling his life from his rural village through his triumph over apartheid.",
+    "rating": 4.8,
+    "bookContent": "This powerful autobiography tells the story of one of the world's most inspiring moral leaders, from his early life through his 27 years in prison to his role in healing a nation."
+  },
+  {
+    "image": "https://i.ibb.co.com/jD7F7CS/streetcar-named-dersire.webp",
+    "name": "A Streetcar Named Desire",
+    "quantity": 3,
+    "authorName": "Tennessee Williams",
+    "category": "Drama",
+    "shortDescription": "A play depicting the mental and emotional deterioration of Blanche DuBois when she moves in with her sister in New Orleans.",
+    "rating": 4.7,
+    "bookContent": "This Pulitzer Prize-winning play explores themes of desire, delusion, and the decline of Southern aristocracy through the conflict between Blanche DuBois and Stanley Kowalski."
   }
 ]

@@ -1,9 +1,38 @@
+import axios from "axios";
 import { BiEditAlt } from "react-icons/bi";
 import { FaInfoCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const TableView = ({ books }) => {
+const TableView = ({ books, setBooks }) => {
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure you want to Remove yhis?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://study-shelf-server.vercel.app/allBooks/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Removed!",
+                text: "Your Book has been removed.",
+                icon: "success",
+              });
+              const remaining = books.filter((book) => book._id !== id);
+              setBooks(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <div className="overflow-x-auto">
@@ -55,9 +84,12 @@ const TableView = ({ books }) => {
                     >
                       <FaInfoCircle></FaInfoCircle>
                     </Link>
-                    {/* <button className="btn btn-sm btn-outline text-red-500 hover:bg-red-500 hover:border-red-500">
+                    <button
+                      onClick={() => handleDelete(book._id)}
+                      className="btn btn-sm btn-outline text-red-500 hover:bg-red-500 hover:border-red-500"
+                    >
                       <MdDelete></MdDelete>
-                    </button> */}
+                    </button>
                   </div>
                 </td>
               </tr>

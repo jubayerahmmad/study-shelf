@@ -78,6 +78,11 @@ const AddBooks = () => {
               <option value="Thriller">Thriller</option>
               <option value="Novel">Novel</option>
               <option value="History">History</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Poetry">Poetry</option>
+              <option value="Drama">Drama</option>
+              <option value="Biography">Biography</option>
+              <option value="Fantasy">Fantasy</option>
             </select>
             <label className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-purple-600 peer-focus:dark:text-purple-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Choose Category

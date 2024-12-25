@@ -4,8 +4,37 @@ import { MdDelete, MdNumbers } from "react-icons/md";
 import { FaInfoCircle } from "react-icons/fa";
 import ReactStars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-const CardView = ({ books }) => {
+const CardView = ({ books, setBooks }) => {
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure you want to Remove yhis?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://study-shelf-server.vercel.app/allBooks/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Removed!",
+                text: "Your Book has been removed.",
+                icon: "success",
+              });
+              const remaining = books.filter((book) => book._id !== id);
+              setBooks(remaining);
+            }
+          });
+      }
+    });
+  };
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
@@ -75,9 +104,12 @@ const CardView = ({ books }) => {
                   >
                     <FaInfoCircle size={20}></FaInfoCircle>
                   </Link>
-                  {/* <button className="btn btn-outline text-red-500 hover:bg-red-500 hover:border-red-500">
+                  <button
+                    onClick={() => handleDelete(book._id)}
+                    className="btn btn-outline text-red-500 hover:bg-red-500 hover:border-red-500"
+                  >
                     <MdDelete size={20}></MdDelete>
-                  </button> */}
+                  </button>
                 </div>
                 <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold font-sans flex items-center gap-1">
                   <MdNumbers></MdNumbers> <span>{book.quantity}</span>

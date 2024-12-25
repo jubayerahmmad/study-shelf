@@ -81,9 +81,9 @@ const AllBooks = () => {
         </div>
 
         {tableView ? (
-          <TableView books={books}></TableView>
+          <TableView books={books} setBooks={setBooks}></TableView>
         ) : (
-          <CardView books={books}></CardView>
+          <CardView books={books} setBooks={setBooks}></CardView>
         )}
       </div>
     </div>

@@ -24,6 +24,31 @@ const BookCategories = () => {
       img: "https://i.ibb.co.com/kGHkw9L/history.webp",
       id: "history",
     },
+    {
+      category: "Poetry",
+      img: "https://i.ibb.co.com/fDH09TP/poetry.jpg",
+      id: "poetry",
+    },
+    {
+      category: "Biography",
+      img: "https://i.ibb.co.com/8bd1DsP/Historical-Biography.jpg",
+      id: "biography",
+    },
+    {
+      category: "Fantasy",
+      img: "https://i.ibb.co.com/dtNqH0S/fantasy.jpg",
+      id: "fantasy",
+    },
+    {
+      category: "Philosophy",
+      img: "https://i.ibb.co.com/C2YbvJJ/philosophy.jpg",
+      id: "philosophy",
+    },
+    {
+      category: "Drama",
+      img: "https://i.ibb.co.com/rxgvKtz/drama.jpg",
+      id: "drama",
+    },
   ];
   return (
     <div className="my-6">
