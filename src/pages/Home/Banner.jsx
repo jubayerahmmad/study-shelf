@@ -11,7 +11,7 @@ import "swiper/css/bundle";
 
 const Banner = () => {
   return (
-    <div className="w-10/12 mx-auto my-8 rounded-md">
+    <div className="mb-8">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={20}
@@ -32,7 +32,7 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500 rounded-xl"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/bHXw9ZD/priscilla-du-preez-gge-Z9oy-I-PE-unsplash.jpg")`,
               backgroundPosition: "center",
@@ -40,10 +40,10 @@ const Banner = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300 rounded-xl"></div>
+            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4 rounded-xl">
+            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Welcome to{" "}
                 <span className="text-purple-400 text-3xl lg:text-7xl font-pacifico">
@@ -62,7 +62,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500 rounded-xl"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/8B9Bfg5/pexels-mart-production-8872714.jpg")`,
               backgroundPosition: "center",
@@ -70,10 +70,10 @@ const Banner = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300 rounded-xl"></div>
+            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4 rounded-xl">
+            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Unlock Your Reading Journey
               </h2>
@@ -87,7 +87,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500 rounded-xl"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/MD8x5ct/man-library-with-tablet.jpg")`,
               backgroundPosition: "center",
@@ -95,10 +95,10 @@ const Banner = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300 rounded-xl"></div>
+            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4 rounded-xl">
+            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Unlock New Perspectives
               </h2>
@@ -112,7 +112,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500 rounded-xl"
+            className="swiper-parallax object-cover bg-cover bg-center h-[300px] lg:h-[800px] relative group transition duration-500"
             style={{
               backgroundImage: `url("https://i.ibb.co.com/6gcR269/pexels-element5-1370298.jpg")`,
               backgroundPosition: "center",
@@ -120,10 +120,10 @@ const Banner = () => {
             data-swiper-parallax="-20%"
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300 rounded-xl"></div>
+            <div className="absolute inset-0 bg-black opacity-70 transition-opacity duration-300"></div>
 
             {/* Content (Text) */}
-            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4 rounded-xl">
+            <div className="flex flex-col justify-center items-center w-full h-full text-white text-4xl font-bold relative z-10 opacity-100 transition-opacity duration-300 space-y-2 p-4">
               <h2 className="text-white text-2xl lg:text-6xl font-bold mb-4 animate__animated animate__fadeInLeft font-oswald">
                 Your Learning Hub
               </h2>

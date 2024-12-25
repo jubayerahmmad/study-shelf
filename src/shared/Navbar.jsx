@@ -140,7 +140,7 @@ const Navbar = () => {
           className={` ${
             mobileSidebarOpen
               ? "opacity-100 z-20"
-              : "-top-[400px] opacity-0 z-[-1]"
+              : "top-[-400px] opacity-0 z-[-1]"
           } xl:hidden bg-white  boxShadow p-4 text-center absolute top-[65px] right-0 w-full rounded-md transition-all duration-1000`}
         >
           <ul className="items-center gap-12 text-[1rem] text-gray-600 flex flex-col text-xl">

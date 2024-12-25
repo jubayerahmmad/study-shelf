@@ -3,21 +3,23 @@ import { useEffect, useState } from "react";
 import TableView from "../components/TableView";
 import CardView from "../components/CardView";
 import axios from "axios";
+// import { useLoaderData } from "react-router-dom";
+// import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const AllBooks = () => {
-  // const loadedBooks = useLoaderData();
   const [books, setBooks] = useState([]);
   const [tableView, setTableView] = useState(false);
+  // const { totalBooks } = useLoaderData();
+  // const itemsPerPage = 8;
+  // const numberOfpages = Math.ceil(totalBooks / itemsPerPage);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const pages = [...Array(numberOfpages).keys()];
 
   useEffect(() => {
     axios.get("https://study-shelf-server.vercel.app/allBooks").then((res) => {
       setBooks(res.data);
     });
   }, []);
-
-  // const filteredBooks = books.filter((book) => book.quantity > 0);
-  // console.log(filteredBooks);
-  // console.log(books);
 
   const handleShowAvailable = () => {
     axios
@@ -26,6 +28,17 @@ const AllBooks = () => {
         setBooks(res.data);
       });
   };
+
+  // const handlePrevPage = () => {
+  //   if (currentPage > 1) {
+  //     setCurrentPage(currentPage - 1);
+  //   }
+  // };
+  // const handleNextPage = () => {
+  //   if (currentPage < pages.length) {
+  //     setCurrentPage(currentPage + 1);
+  //   }
+  // };
 
   return (
     <div className="my-6 mx-auto w-11/12 font-oswald">
@@ -57,20 +70,6 @@ const AllBooks = () => {
           </div>
 
           <div>
-            {/* <select
-              className="bg-purple-800 text-white rounded-md p-2"
-              onChange={(e) =>
-                setBooks(
-                  e.target.value === "Show Available Books"
-                    ? filteredBooks
-                    : loadedBooks
-                )
-              }
-            >
-              <option value="All Books">All Books</option>
-              <option value="Show Available Books">Show Available Books</option>
-            </select> */}
-
             <button
               onClick={handleShowAvailable}
               className={`px-4 py-1.5 text-lg font-medium text-gray-900 border border-purple-900 rounded-lg`}
@@ -86,6 +85,34 @@ const AllBooks = () => {
           <CardView books={books} setBooks={setBooks}></CardView>
         )}
       </div>
+
+      {/* pagination controls : will implement later(after getting the marks)*/}
+
+      {/* <div className="text-center mt-6">
+        <button
+          onClick={handlePrevPage}
+          className={`btn btn-outline bg-purple-300 btn-circle text-purple-800 hover:bg-purple-900 mx-2`}
+        >
+          <FaArrowLeft></FaArrowLeft>
+        </button>
+        {pages.map((page) => (
+          <button
+            onClick={() => setCurrentPage(page + 1)}
+            className={`btn btn-outline bg-purple-300 btn-circle text-purple-800 hover:bg-purple-900 ${
+              currentPage === page + 1 && "bg-purple-900 text-white"
+            } mx-2`}
+            key={page}
+          >
+            {page + 1}
+          </button>
+        ))}
+        <button
+          onClick={handleNextPage}
+          className={`btn btn-outline bg-purple-300 btn-circle text-purple-800 hover:bg-purple-900 mx-2`}
+        >
+          <FaArrowRight></FaArrowRight>
+        </button>
+      </div> */}
     </div>
   );
 };

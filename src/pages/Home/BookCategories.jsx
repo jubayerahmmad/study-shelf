@@ -10,6 +10,11 @@ const BookCategories = () => {
       id: "science-fiction",
     },
     {
+      category: "Biography",
+      img: "https://i.ibb.co.com/8bd1DsP/Historical-Biography.jpg",
+      id: "biography",
+    },
+    {
       category: "Novel",
       img: "https://i.ibb.co.com/1bgV0BL/novel.jpg",
       id: "novel",
@@ -28,11 +33,6 @@ const BookCategories = () => {
       category: "Poetry",
       img: "https://i.ibb.co.com/fDH09TP/poetry.jpg",
       id: "poetry",
-    },
-    {
-      category: "Biography",
-      img: "https://i.ibb.co.com/8bd1DsP/Historical-Biography.jpg",
-      id: "biography",
     },
     {
       category: "Fantasy",
