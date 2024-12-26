@@ -73,7 +73,7 @@ const BorrowedBooks = () => {
             {books.map((book) => (
               <div
                 key={book._id}
-                className="card items-center lg:card-side bg-base-100 shadow-xl border border-purple-200"
+                className="card items-center lg:card-side bg-base-100 shadow-xl border-l-4 border-purple-600"
                 data-aos="zoom-in-right"
               >
                 <figure>

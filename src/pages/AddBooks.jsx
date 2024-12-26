@@ -4,9 +4,11 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const AddBooks = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -33,12 +35,13 @@ const AddBooks = () => {
       navigate("/allBooks");
     },
     onError: (err) => {
-      console.log(err);
+      // console.log(err);
     },
   });
 
   const onSubmit = (data) => {
-    mutateAsync(data);
+    const formData = { ...data, userEmail: user?.email };
+    mutateAsync(formData);
   };
   return (
     <div className="w-10/12 mx-auto my-6">
@@ -219,7 +222,9 @@ const AddBooks = () => {
           {/* submit button */}
           <button
             type="submit"
-            className="btn text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-center font-merriweather"
+            className={`btn ${
+              isPending ? "btn-outline text-fuchsia-600 bg-white" : ""
+            } text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-center font-merriweather`}
           >
             {isPending ? "Adding..." : "Add Book"}
           </button>
