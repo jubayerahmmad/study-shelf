@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const AddBooks = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const AddBooks = () => {
       navigate("/allBooks");
     },
     onError: (err) => {
-      // console.log(err);
+      toast.error(err?.message);
     },
   });
 
@@ -43,6 +44,7 @@ const AddBooks = () => {
     const formData = { ...data, userEmail: user?.email };
     mutateAsync(formData);
   };
+
   return (
     <div className="w-10/12 mx-auto my-6">
       <Helmet>

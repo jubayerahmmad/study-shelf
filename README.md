@@ -31,7 +31,9 @@ Study Shelf is a web-based library management system designed to streamline the 
 - React Tooltip: Used for displaying tooltips in the application.
 - Swiper: Used for creating carousels and sliders in the application.
 - React Fast Marquee: Used for creating a marquee effect in the BookCategories component.
+- AOS: Used for animations.
+- TanStack Query: Used for managing and optimizing data posting.
 
 ## Live URL
 
-- Live URL: [Study Shelf](https://study-shelf-63c33.web.app/)
+Live URL: [Study Shelf](https://study-shelf-63c33.web.app/)

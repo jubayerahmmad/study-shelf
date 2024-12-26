@@ -45,7 +45,7 @@ const UpdateBooks = () => {
   };
 
   return (
-    <div className="w-10/12 mx-auto border-2 border-purple-950 p-4 my-6">
+    <div className="w-10/12 mx-auto border-2 border-purple-950 p-4 my-6 bg-purple-200 bg-opacity-60">
       <Helmet>
         <title>Update Book - Study Shelf</title>
       </Helmet>
