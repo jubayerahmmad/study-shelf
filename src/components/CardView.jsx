@@ -37,20 +37,30 @@ const CardView = ({ books, setBooks }) => {
   };
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {books?.map((book) => (
           <div
             key={book._id}
             data-aos="zoom-in"
             className="w-full bg-white border border-gray-200 rounded-lg shadow-xl"
           >
-            <img
-              className="rounded-t-lg w-full h-96 object-contain"
-              src={book.image}
-              alt="product image"
-            />
+            <div className="relative">
+              <img
+                className="rounded-t-lg w-full h-60 object-contain"
+                src={book.image}
+                alt="product image"
+              />
+              <h5
+                className={`badge badge-success absolute top-3 right-2 ${
+                  !book.quantity &&
+                  "bg-red-100 text-red-700 border border-red-700"
+                } bg-green-100 text-green-700 border border-green-700 font-semibold`}
+              >
+                {book.quantity ? `${book.quantity} Available` : "Out of Stock"}
+              </h5>
+            </div>
 
-            <div className="px-5 pb-5 my-4">
+            <div className="px-5 my-4">
               <div className="h-36">
                 <h2 className="text-2xl font-semibold tracking-wide text-gray-900">
                   {book.name}
@@ -94,26 +104,23 @@ const CardView = ({ books, setBooks }) => {
                 <div className="flex items-center gap-2">
                   <Link
                     to={`/update-book/${book._id}`}
-                    className="btn text-white bg-purple-700 hover:bg-purple-800"
+                    className="btn btn-sm text-white bg-purple-700 hover:bg-purple-800"
                   >
                     <BiEditAlt size={20}></BiEditAlt>
                   </Link>
                   <Link
                     to={`/bookDetails/${book._id}`}
-                    className="btn btn-outline text-purple-700 hover:bg-purple-800"
+                    className="btn btn-sm btn-outline text-purple-700 hover:bg-purple-800"
                   >
                     <FaInfoCircle size={20}></FaInfoCircle>
                   </Link>
                   <button
                     onClick={() => handleDelete(book._id)}
-                    className="btn btn-outline text-red-500 hover:bg-red-500 hover:border-red-500"
+                    className="btn btn-sm btn-outline text-red-500 hover:bg-red-500 hover:border-red-500"
                   >
                     <MdDelete size={20}></MdDelete>
                   </button>
                 </div>
-                <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold font-sans flex items-center gap-1">
-                  <MdNumbers></MdNumbers> <span>{book.quantity}</span>
-                </h5>
               </div>
             </div>
           </div>

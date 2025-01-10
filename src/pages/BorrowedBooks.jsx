@@ -70,50 +70,53 @@ const BorrowedBooks = () => {
       <div className="max-w-6xl mx-auto space-y-6 my-6 p-6">
         {books.length > 0 ? (
           <>
-            {books.map((book) => (
-              <div
-                key={book._id}
-                className="card items-center lg:card-side bg-base-100 shadow-xl border-l-4 border-purple-600"
-                data-aos="zoom-in-right"
-              >
-                <figure>
-                  <img
-                    className="h-32 w-56 object-contain p-4"
-                    src={book.image}
-                    alt="bookImage"
-                  />
-                </figure>
-                <div className="card-body w-full">
-                  <h2 className="card-title">
-                    {book.name}{" "}
-                    <span className="badge badge-accent badge-lg">
-                      {book.category}
-                    </span>
-                  </h2>
-
-                  <div className="lg:flex items-center gap-4 space-y-4 lg:space-y-0">
-                    <p className="text-gray-700">
-                      Borrowed on:{" "}
-                      <span className="font-oswald tracking-wider">
-                        {book.borrowDate}
-                      </span>
-                    </p>
-                    <p className="text-gray-700">
-                      Return Date:{" "}
-                      <span className="font-oswald tracking-wider">
-                        {book.returnDate}
-                      </span>
-                    </p>
-                    <button
-                      onClick={() => handleReturn(book?._id)}
-                      className="btn btn-outline text-red-500 hover:bg-red-500 font-merriweather hover:border-red-500"
-                    >
-                      Return
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+            <div className="overflow-x-auto">
+              <table className="table">
+                {/* head */}
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Borrowed Date</th>
+                    <th>Return Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {/* row 2 */}
+                  {books.map((book, i) => (
+                    <tr key={book._id} className="hover">
+                      <th>{i + 1}</th>
+                      <td>
+                        <div className="flex items-center gap-3">
+                          <div className="avatar">
+                            <div className="mask mask-squircle h-12 w-12">
+                              <img src={book.image} alt="" book image />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">{book.name}</div>
+                            <div className="text-sm opacity-50">
+                              By {book.author}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{book.borrowDate}</td>
+                      <td>{book.returnDate}</td>
+                      <td>
+                        <button
+                          className="btn btn-xs text-white btn-error"
+                          onClick={() => handleReturn(book._id)}
+                        >
+                          Return
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </>
         ) : (
           <div className="flex flex-col items-center justify-center my-6 space-y-6">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
-import logo from "../assets/logo.png";
+import logo from "../assets/library.png";
 import { Link, NavLink } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
 import { Tooltip } from "react-tooltip";
@@ -22,19 +22,19 @@ const Navbar = () => {
   };
 
   return (
-    <div className="px-6 py-4 w-full bg-slate-100 bg-opacity-60 backdrop-blur-sm sticky top-0 z-50">
+    <div className="px-4 py-2 w-full bg-purple-100 bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-xl animate__animated animate__fadeInDown">
       <nav className="flex items-center justify-between  relative lg:w-10/12 mx-auto boxShadow font-oswald">
         <Link
           to="/"
           className="btn shadow-none hover:bg-transparent bg-transparent border-none outline-none"
         >
-          <img src={logo} alt="logo" className="w-6 lg:w-12 object-cover" />
-          <span className="font-pacifico text-lg lg:text-2xl bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+          <img src={logo} alt="logo" className="w-6 lg:w-10 object-cover" />
+          <span className="font-pacifico text-lg lg:text-xl bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
             Study Shelf
           </span>
         </Link>
 
-        <ul className="items-center gap-12 text-2xl  xl:flex hidden font-semibold ">
+        <ul className="items-center gap-8 text-xl  xl:flex hidden font-semibold ">
           <NavLink to="/">
             <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
               Home
@@ -109,26 +109,26 @@ const Navbar = () => {
               <Link>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-xs lg:btn-md border-none font-semibold text-sm lg:text-lg rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300"
+                  className="btn btn-sm border-none font-semibold text-sm rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300"
                 >
                   Log Out
                 </button>
               </Link>
             </>
           ) : (
-            <>
+            <div className="flex border rounded-md">
               <Link to="/login">
-                <button className="btn btn-xs lg:btn-md border-none font-semibold text-sm lg:text-lg rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300">
+                <button className="btn btn-sm border-none font-semibold rounded-none rounded-l-md bg-purple-700 hover:bg-purple-900 text-white transition-all duration-300">
                   Login
                 </button>
               </Link>
 
               <Link to="/register">
-                <button className="btn btn-xs lg:btn-md border-none font-semibold text-sm lg:text-lg rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300">
+                <button className="btn btn-sm border-none font-semibold rounded-none rounded-r-md bg-purple-700 hover:bg-purple-900 text-white transition-all duration-300">
                   Register
                 </button>
               </Link>
-            </>
+            </div>
           )}
 
           {mobileSidebarOpen ? (

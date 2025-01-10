@@ -1,6 +1,7 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { Helmet } from "react-helmet-async";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -19,20 +20,32 @@ const CategoryPage = () => {
             Books
           </h2>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {books?.map((book) => (
             <div
               key={book._id}
               className="w-full bg-white border border-gray-200 rounded-lg shadow"
             >
-              <img
-                className="rounded-t-lg w-full h-96 object-contain"
-                src={book.image}
-                alt="product image"
-              />
+              <div className="relative">
+                <img
+                  className="rounded-t-lg w-full h-48 object-contain"
+                  src={book.image}
+                  alt="product image"
+                />
+                <h5
+                  className={`badge badge-success absolute top-3 right-2 ${
+                    !book.quantity &&
+                    "bg-red-100 text-red-700 border border-red-700"
+                  } bg-green-100 text-green-700 border border-green-700 font-semibold`}
+                >
+                  {book.quantity
+                    ? `${book.quantity} Available`
+                    : "Out of Stock"}
+                </h5>
+              </div>
 
-              <div className="px-5 pb-5 my-4">
-                <div className="h-32">
+              <div className="px-5 pb-4">
+                <div className="h-28">
                   <h2 className="text-2xl font-semibold tracking-wide text-gray-900">
                     {book.name}
                   </h2>
@@ -65,13 +78,14 @@ const CategoryPage = () => {
                 <div className="flex items-center justify-between mt-6">
                   <Link
                     to={`/bookDetails/${book._id}`}
-                    className="text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                    className="text-white bg-purple-700 hover:bg-purple-800 font-medium rounded-lg text-sm px-3 py-2 text-center flex items-center gap-2 group"
                   >
-                    Details
+                    View Details{" "}
+                    <span className="group-hover:-rotate-45 group-hover:scale-110 duration-200">
+                      {" "}
+                      <FaArrowRightLong />
+                    </span>
                   </Link>
-                  <h5 className="p-2 rounded-md bg-green-100 text-green-700 border border-green-700 font-semibold">
-                    Quantity: {book.quantity}
-                  </h5>
                 </div>
               </div>
             </div>

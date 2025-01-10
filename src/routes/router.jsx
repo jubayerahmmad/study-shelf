@@ -42,11 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/category/:category",
-        element: (
-          <ProtectedRoute>
-            <CategoryPage></CategoryPage>
-          </ProtectedRoute>
-        ),
+        element: <CategoryPage></CategoryPage>,
         loader: ({ params }) =>
           fetch(
             `https://study-shelf-server.vercel.app/books/${params.category}`
@@ -54,11 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/bookDetails/:id",
-        element: (
-          <ProtectedRoute>
-            <BookDetails></BookDetails>
-          </ProtectedRoute>
-        ),
+        element: <BookDetails></BookDetails>,
         loader: ({ params }) =>
           fetch(`https://study-shelf-server.vercel.app/allBooks/${params.id}`),
       },

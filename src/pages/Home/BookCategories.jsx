@@ -21,12 +21,12 @@ const BookCategories = () => {
     },
     {
       category: "Thriller",
-      img: "https://i.ibb.co.com/VHbNDFK/thriller.jpg",
+      img: "https://i.ibb.co.com/C0W7qfs/thriller.jpg",
       id: "thriller",
     },
     {
       category: "History",
-      img: "https://i.ibb.co.com/kGHkw9L/history.webp",
+      img: "https://i.ibb.co.com/kqVg3dm/history.webp",
       id: "history",
     },
     {
@@ -41,7 +41,7 @@ const BookCategories = () => {
     },
     {
       category: "Philosophy",
-      img: "https://i.ibb.co.com/C2YbvJJ/philosophy.jpg",
+      img: "https://i.ibb.co.com/MfT6VPB/philosophy.jpg",
       id: "philosophy",
     },
     {
@@ -51,18 +51,23 @@ const BookCategories = () => {
     },
   ];
   return (
-    <div className="my-6">
+    <div className="">
       <div className="text-center my-6 space-y-3">
         <h1 className="text-4xl lg:text-6xl font-oswald font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
           Book Categories
         </h1>
-        <p className="text-xs lg:text-lg text-gray-600 font-merriweather">
+        <p className="text-xs lg:text-lg text-gray-600">
           Explore a wide range of book categories. From timeless classics to
           modern bestsellers, we have something for every book lover.
         </p>
       </div>
-      <div className="my-4">
-        <Marquee gradient={true} gradientWidth={60} pauseOnHover={true}>
+      <div className="border-t-2 border-b-2 border-dashed border-purple-900">
+        <Marquee
+          gradient={true}
+          gradientWidth={60}
+          pauseOnHover={true}
+          autoFill={true}
+        >
           {categories.map((category) => (
             <Link key={category.id} to={`/category/${category.category}`}>
               <motion.div
@@ -76,7 +81,7 @@ const BookCategories = () => {
                   duration: 0.7,
                   ease: "easeInOut",
                 }}
-                className="rounded-md shadow-md transition duration-500 mx-6 my-12 bg-purple-50 hover:scale-105"
+                className="rounded-md shadow-md transition duration-500 mx-4 my-8 bg-purple-50 hover:scale-105"
               >
                 <img
                   src={category.img}

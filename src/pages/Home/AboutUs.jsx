@@ -8,9 +8,9 @@ import collectionImg from "../../assets/icons8-book-64.png";
 
 const AboutUs = () => {
   return (
-    <section className="py-16 px-6 bg-slate-100 bg-opacity-50">
+    <section className="p-6 bg-purple-50 bg-opacity-50">
       <div className="text-center space-y-2 my-6">
-        <h1 className="text-4xl lg:text-6xl font-oswald font-bold">
+        <h1 className="text-4xl lg:text-6xl font-oswald font-bold mb-4">
           Welcome to{" "}
           <span className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent font-pacifico">
             Study Shelf
@@ -71,7 +71,7 @@ const AboutUs = () => {
       </div>
 
       {/* Why Choose Us */}
-      <div className="max-w-5xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-5xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <motion.div
           initial={{
             filter: "drop-shadow(0px 10px 15px rgba(125,26,153,0.25))",
@@ -156,7 +156,7 @@ const AboutUs = () => {
       </div>
 
       {/* Call-to-Action */}
-      <div className="text-center mt-12">
+      <div className="text-center mt-5">
         <Link to="/allBooks">
           <button className="btn btn-outline text-purple-800 hover:bg-purple-800 text-xl rounded-lg font-oswald">
             Explore Books

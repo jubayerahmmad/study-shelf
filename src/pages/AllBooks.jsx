@@ -4,6 +4,7 @@ import TableView from "../components/TableView";
 import CardView from "../components/CardView";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { BiCard } from "react-icons/bi";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);

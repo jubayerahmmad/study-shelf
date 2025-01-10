@@ -51,6 +51,7 @@ const BookDetails = () => {
       userName: name,
       email,
       borrowDate,
+      author: book?.authorName,
       returnDate,
       bookId: book?._id,
       name: book?.name,
@@ -85,29 +86,35 @@ const BookDetails = () => {
           </motion.p>
         </h1>
       </div>
+
+      {/* card  */}
       <div
-        className="p-6 bg-purple-50 bg-opacity-80 backdrop-blur-sm rounded-xl shadow-md lg:w-8/12 mx-auto mb-6"
+        className="bg-purple-50 bg-opacity-80 backdrop-blur-sm rounded-xl shadow-md md:w-8/12 mx-auto mb-6"
         data-aos="zoom-in"
       >
-        <div>
+        <div className="bg-white bg-opacity-65 rounded-t-xl">
           <img
             src={book?.image}
             alt={book?.name}
-            className="w-full h-96 object-contain rounded-md"
+            className="w-full h-48 lg:h-96 p-3 object-contain rounded-md"
           />
+          <span
+            className={`badge badge-accent absolute top-3 right-2 ${
+              !book.quantity && "bg-red-100 text-red-700 border border-red-700"
+            } bg-green-100 text-green-700 border border-green-700 font-bold`}
+          >
+            {book.quantity ? `${book.quantity} Available` : "Out of Stock"}
+          </span>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-4 p-6">
           <div className="lg:flex gap-2 items-center py-2 space-y-2">
             <h1 className="text-4xl font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
               {book?.name}
             </h1>
-            <p className="badge badge-accent text-white">
-              Quantity: {book?.quantity}
-            </p>
           </div>
           <p className="text-gray-600">
             By{" "}
-            <span className="font-light font-pacifico">{book?.authorName}</span>
+            <span className="font-thin font-pacifico">{book?.authorName}</span>
           </p>
           <p className="text-gray-600 mt-1">
             <span className="font-semibold">Category:</span> {book?.category}
@@ -140,19 +147,19 @@ const BookDetails = () => {
             <h2 className="text-lg font-semibold text-gray-800">Content</h2>
             <p className="text-gray-600 mt-1">{book?.bookContent}</p>
           </div>
-        </div>
-        <div className="my-4">
-          <button
-            onClick={() => setisModalOpen(true)}
-            disabled={!book?.quantity}
-            className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
-          >
-            {!book?.quantity
-              ? "Not Available"
-              : isPending
-              ? "Borrowing..."
-              : "Borrow This Book"}
-          </button>
+          <div className="my-4">
+            <button
+              onClick={() => setisModalOpen(true)}
+              disabled={!book?.quantity}
+              className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
+            >
+              {!book?.quantity
+                ? "Not Available"
+                : isPending
+                ? "Borrowing..."
+                : "Borrow This Book"}
+            </button>
+          </div>
         </div>
       </div>
 

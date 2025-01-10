@@ -90,8 +90,8 @@ const Register = () => {
         <title>Register - Study Shelf</title>
       </Helmet>
 
-      <div className="lg:flex items-center justify-center">
-        <div className="lg:w-1/2 p-8 bg-purple-200">
+      <div className="lg:flex flex-row-reverse items-center justify-center">
+        <div className="lg:w-2/3 p-8 bg-purple-200">
           <div>
             <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
               Register Now
@@ -211,7 +211,7 @@ const Register = () => {
         </div>
 
         {/* Lottie animation */}
-        <div className="lg:w-1/2  bg-purple-600">
+        <div className="lg:w-1/3 bg-purple-400">
           <Lottie
             animationData={registerAnimation} // Path to your animation JSON
             loop={true} // Loop the animation

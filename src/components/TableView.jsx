@@ -36,7 +36,7 @@ const TableView = ({ books, setBooks }) => {
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table bg-purple-50 bg-opacity-80 backdrop-blur-sm">
+        <table className="table bg-purple-100 bg-opacity-80 backdrop-blur-sm">
           {/* head */}
           <thead>
             <tr data-aos="zoom-in-right">
