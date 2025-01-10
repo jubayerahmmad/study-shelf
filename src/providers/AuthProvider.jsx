@@ -18,6 +18,14 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
+  useEffect(() => {
+    // Simulate a delay (e.g., fetching initial data)
+    const timer = setTimeout(() => {
+      setLoader(false);
+    }, 2000); // Adjust delay as needed
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []);
 
   // create user
   const registerUser = (email, password) => {

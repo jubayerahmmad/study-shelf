@@ -6,22 +6,25 @@ import noDataAnimation from "../assets/noData.json";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+import Loader from "../components/Loader";
 
 const BorrowedBooks = () => {
   const { user } = useAuth();
-  const [books, setBooks] = useState([]);
   const axiosInstance = useAxiosSecure();
+  const {
+    data: books = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["borrowed-books", user?.email],
+    queryFn: async () => {
+      const { data } = await axiosInstance.get(`/borrowedBooks/${user?.email}`);
+      return data;
+    },
+  });
 
-  useEffect(() => {
-    axiosInstance
-      .get(`/borrowedBooks/${user?.email}`)
-      .then((res) => {
-        setBooks(res.data);
-      })
-      .catch((err) => {
-        toast.error(err.response.data);
-      });
-  }, [user?.email]);
+  if (isLoading) return <Loader />;
 
   const handleReturn = (id) => {
     Swal.fire({
@@ -45,8 +48,7 @@ const BorrowedBooks = () => {
                 text: "Your Book has been returned.",
                 icon: "success",
               });
-              const remaining = books.filter((book) => book._id !== id);
-              setBooks(remaining);
+              refetch();
             }
           });
       }

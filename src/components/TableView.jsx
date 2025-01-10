@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const TableView = ({ books, setBooks }) => {
+const TableView = ({ books, refetch }) => {
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure you want to Remove yhis?",
@@ -26,8 +26,7 @@ const TableView = ({ books, setBooks }) => {
                 text: "Your Book has been removed.",
                 icon: "success",
               });
-              const remaining = books.filter((book) => book._id !== id);
-              setBooks(remaining);
+              refetch();
             }
           });
       }
