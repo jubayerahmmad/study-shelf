@@ -124,7 +124,7 @@ const Navbar = () => {
               </Link>
 
               <Link to="/register">
-                <button className="btn btn-sm border-none font-semibold rounded-none rounded-r-md bg-purple-700 hover:bg-purple-900 text-white transition-all duration-300">
+                <button className="btn btn-sm border-none font-semibold rounded-none rounded-r-md bg-purple-200 hover:bg-purple-300 text-black transition-all duration-300">
                   Register
                 </button>
               </Link>

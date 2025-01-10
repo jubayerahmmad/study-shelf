@@ -23,11 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allBooks",
-        element: (
-          <ProtectedRoute>
-            <AllBooks></AllBooks>
-          </ProtectedRoute>
-        ),
+        element: <AllBooks></AllBooks>,
         // loader: () => fetch("http://localhost:5000/booksCount"),
       },
       {

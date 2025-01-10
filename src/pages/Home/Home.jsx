@@ -4,6 +4,7 @@ import BookCategories from "./BookCategories";
 import Faqs from "./Faqs";
 import AboutUs from "./AboutUs";
 import { Helmet } from "react-helmet-async";
+import NewsletterForm from "./NewsletterForm";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <AboutUs></AboutUs>
       <BookCategories></BookCategories>
       <Faqs></Faqs>
+      <NewsletterForm />
     </div>
   );
 };
