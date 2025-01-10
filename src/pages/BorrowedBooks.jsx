@@ -61,7 +61,7 @@ const BorrowedBooks = () => {
         <title>Borrowed Books - Study Shelf</title>
       </Helmet>
       <div className="text-center my-4">
-        <h2 className="text-4xl font-bold">
+        <h2 className="text-3xl lg:text-5xl font-bold">
           Books Borrowed by{" "}
           <span className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
             {user.displayName}

@@ -45,13 +45,19 @@ const Navbar = () => {
               All Books
             </li>
           </NavLink>
-          <NavLink to="/addBooks">
+          <NavLink to="/events">
             <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
-              Add Books
+              Events
             </li>
           </NavLink>
+
           {user && (
             <>
+              <NavLink to="/addBooks">
+                <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+                  Add Books
+                </li>
+              </NavLink>
               <NavLink to="/borrowedBooks">
                 <li className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
                   Borrowed Books

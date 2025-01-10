@@ -1,5 +1,4 @@
 import logo from "../assets/library.png";
-// import bg from "../assets/layered_waves-1736498112913.png";
 
 // react icons
 import { CgFacebook } from "react-icons/cg";
@@ -12,14 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <footer
-      // style={{
-      //   backgroundImage: `url(${bg})`,
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundSize: "cover",
-      // }}
-      className="bg-purple-100 boxShadow w-full p-3 lg:p-4 relative font-oswald"
-    >
+    <footer className="bg-purple-100 boxShadow w-full p-3 lg:p-4 relative font-oswald">
       <div className="max-w-7xl mx-auto flex items-center justify-center pt-5 flex-col gap-4 ">
         <img src={logo} alt="logo" className="" />
         <h2 className="text-4xl font-semibold font-pacifico bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">

@@ -1,30 +1,30 @@
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableView from "../components/TableView";
 import CardView from "../components/CardView";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useQuery } from "@tanstack/react-query";
-import Loader from "../components/Loader";
+import { BiCard } from "react-icons/bi";
 
 const AllBooks = () => {
+  const [books, setBooks] = useState([]);
   const [tableView, setTableView] = useState(false);
 
-  const {
-    data: books = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["books"],
-    queryFn: async () => {
-      const { data } = await axios.get(
-        "https://study-shelf-server.vercel.app/allBooks"
-      );
-      return data;
-    },
-  });
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios.get(
+          "https://study-shelf-server.vercel.app/allBooks"
+        );
+        // console.log(data);
+        setBooks(data);
+      } catch (err) {
+        toast.error(err?.message);
+      }
+    };
 
-  if (isLoading) return <Loader />;
+    getData();
+  }, []);
 
   const handleShowAvailable = () => {
     const getAvailableData = async () => {
@@ -80,9 +80,9 @@ const AllBooks = () => {
         </div>
 
         {tableView ? (
-          <TableView books={books} refetch={refetch}></TableView>
+          <TableView books={books} setBooks={setBooks}></TableView>
         ) : (
-          <CardView books={books} refetch={refetch}></CardView>
+          <CardView books={books} setBooks={setBooks}></CardView>
         )}
       </div>
     </div>

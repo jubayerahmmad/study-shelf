@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const CardView = ({ books, refetch }) => {
+const CardView = ({ books, setBooks }) => {
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure you want to Remove yhis?",
@@ -28,7 +28,8 @@ const CardView = ({ books, refetch }) => {
                 text: "Your Book has been removed.",
                 icon: "success",
               });
-              refetch();
+              const remaining = books.filter((book) => book._id !== id);
+              setBooks(remaining);
             }
           });
       }

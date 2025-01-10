@@ -11,6 +11,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import CategoryPage from "../pages/CategoryPage";
 import UpdateBooks from "../components/UpdateBooks";
 import BookDetails from "../components/BookDetails";
+import Events from "../pages/Events";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,7 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/allBooks",
         element: <AllBooks></AllBooks>,
-        // loader: () => fetch("http://localhost:5000/booksCount"),
+      },
+      {
+        path: "/events",
+        element: <Events />,
       },
       {
         path: "/update-book/:id",
