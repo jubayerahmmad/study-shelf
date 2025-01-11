@@ -11,7 +11,6 @@ const UpdateBooks = () => {
   const navigate = useNavigate();
   const { _id, image, category, name, authorName, rating } = useLoaderData();
   const [categorySelect, setCategorySelect] = useState(category);
-  // console.log(categorySelect);
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -56,12 +55,6 @@ const UpdateBooks = () => {
         <FaBackward></FaBackward>
       </button>
 
-      <div className="text-center space-y-3">
-        <h2 className="text-3xl lg:text-5xl font-semibold">
-          Update Books Info
-        </h2>
-        <p>Update your book details here.</p>
-      </div>
       <div className="lg:flex items-center gap-4">
         <div className="lg:w-1/3">
           <Lottie
@@ -72,6 +65,12 @@ const UpdateBooks = () => {
           />
         </div>
         <div className="lg:w-2/3 p-6">
+          <div className="text-center space-y-3 mb-4">
+            <h2 className="text-3xl lg:text-5xl font-semibold">
+              Update Books Info
+            </h2>
+            <p>Update your book details here.</p>
+          </div>
           <form
             onSubmit={handleUpdate}
             className="w-full mx-auto font-merriweather"

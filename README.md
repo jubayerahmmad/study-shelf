@@ -34,6 +34,7 @@ Study Shelf is a web-based library management system designed to streamline the 
 - AOS: Used for animations.
 - TanStack Query: Used for managing and optimizing data posting.
 
-## Live URL
+## LINKS
 
+Server Repo: [Study Shelf](https://github.com/jubayerahmmad/study-shelf-server)
 Live URL: [Study Shelf](https://study-shelf-63c33.web.app/)

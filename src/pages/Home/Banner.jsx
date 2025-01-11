@@ -11,15 +11,15 @@ const Banner = () => {
         spaceBetween={20}
         slidesPerView={1}
         autoplay={{
-          delay: 4000, // Time between slides (in milliseconds)
-          disableOnInteraction: false, // Keeps autoplay running even after interaction
+          delay: 4000,
+          disableOnInteraction: false,
         }}
-        loop={true} // Enable infinite loop
+        loop={true}
         pagination={{
           el: ".swiper-pagination",
           clickable: true,
         }}
-        effect="slide" // Choose the slide effect
+        effect="slide"
       >
         <SwiperSlide>
           <div

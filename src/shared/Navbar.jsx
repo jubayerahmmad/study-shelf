@@ -3,12 +3,13 @@ import { CiMenuFries } from "react-icons/ci";
 import logo from "../assets/library.png";
 import { Link, NavLink } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
-import { Tooltip } from "react-tooltip";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import { BiLogOut } from "react-icons/bi";
 
 const Navbar = () => {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+  const [isProfileHovered, setIsProfileHovered] = useState(false);
   const { user, logoutUser } = useAuth();
   const handleLogOut = () => {
     logoutUser().then(() => {
@@ -70,56 +71,56 @@ const Navbar = () => {
         <div className="items-center gap-[10px] flex">
           {user ? (
             <>
-              <div className="avatar cursor-pointer">
-                <div
-                  className="ring-purple-700 ring-offset-base-100 w-6 lg:w-10 rounded-full ring ring-offset-2"
-                  data-tooltip-id="avatar-tooltip"
-                  data-tooltip-offset={10}
-                >
-                  <img
-                    referrerPolicy="no-referrer"
-                    src={`${user?.photoURL}`}
-                    alt="user photo"
-                  />
-                </div>
-              </div>
-              {/* Tooltip with dropdown */}
-              <Tooltip
-                id="avatar-tooltip"
-                place="right"
-                variant="info"
-                className="z-50"
-                clickable={true}
-                delayHide={100}
-                offset={{ right: 20 }}
+              <div
+                className="relative w-fit h-full flex items-center justify-center"
+                // onMouseEnter={() => setIsProfileHovered(true)}
+                onMouseLeave={() => setIsProfileHovered(false)}
               >
-                <div className="rounded shadow-lg w-40 p-2 text-center space-y-3">
-                  <div className="flex justify-center my-2">
-                    <img
-                      className="rounded-full h-14 w-14 object-cover ring-purple-700 ring-offset-base-100 ring ring-offset-2"
-                      src={user.photoURL}
-                      alt="user image"
-                    />
+                {/*  initial profile picture  */}
+                <img
+                  onMouseEnter={() => setIsProfileHovered(true)}
+                  // onMouseLeave={() => setIsProfileHovered(false)}
+                  referrerPolicy="no-referrer"
+                  src={user?.photoURL}
+                  alt="profile"
+                  className="w-[50px] h-[50px] rounded-full object-cover border-[3px] cursor-pointer border-[#8e2cc7]"
+                />
+
+                {/*  tooltip  */}
+                <div
+                  className={` ${
+                    isProfileHovered
+                      ? "opacity-100 z-20 translate-y-0"
+                      : "opacity-0 z-[-1] translate-y-[20px]"
+                  } absolute top-[50px] left-[50%] transform translate-x-[-50%] bg-white w-[170px] lg:w-[250px] rounded-md p-[15px] shadow-md transition-all duration-300`}
+                >
+                  {/*  account details  */}
+                  <div className="flex items-center justify-center flex-col">
+                    <div>
+                      <img
+                        src={user?.photoURL}
+                        alt="profile"
+                        className="w-[80px] h-[80px] rounded-full ring-4 ring-[#8e2cc7] object-cover"
+                      />
+                    </div>
+                    <h4 className="text-[1.1rem] font-[600] text-gray-700 mt-2">
+                      {user?.displayName}
+                    </h4>
                   </div>
-                  <p className="text-white font-semibold mb-2">
-                    {user.displayName}
-                  </p>
+
+                  {/*  send message  */}
                   <button
                     onClick={handleLogOut}
-                    className="btn btn-sm w-full bg-purple-600 font-semibold text-lg text-white hover:bg-purple-800 border-none"
+                    className="flex mx-auto hover:underline items-center gap-[8px] font-[500] text-[0.9rem] text-[#8928c9] mt-4"
                   >
+                    <BiLogOut className="text-[1.1rem]" />
                     Log Out
                   </button>
+
+                  {/*  bottom arrow  */}
+                  <div className="bg-white w-[15px] h-[15px] rotate-[45deg] absolute top-[-7px] left-[50%] transform translate-x-[-50%]"></div>
                 </div>
-              </Tooltip>
-              <Link>
-                <button
-                  onClick={handleLogOut}
-                  className="btn btn-sm border-none font-semibold text-sm rounded-md bg-purple-700 hover:bg-purple-800 text-white transition-all duration-300"
-                >
-                  Log Out
-                </button>
-              </Link>
+              </div>
             </>
           ) : (
             <div className="flex border rounded-md">

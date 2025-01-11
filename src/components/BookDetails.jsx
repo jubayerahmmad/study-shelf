@@ -1,4 +1,4 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
@@ -148,17 +148,25 @@ const BookDetails = () => {
             <p className="text-gray-600 mt-1">{book?.bookContent}</p>
           </div>
           <div className="my-4">
-            <button
-              onClick={() => setisModalOpen(true)}
-              disabled={!book?.quantity}
-              className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
-            >
-              {!book?.quantity
-                ? "Not Available"
-                : isPending
-                ? "Borrowing..."
-                : "Borrow This Book"}
-            </button>
+            {!user ? (
+              <Link to="/login">
+                <button className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald">
+                  Borrow This Book
+                </button>
+              </Link>
+            ) : (
+              <button
+                onClick={() => setisModalOpen(true)}
+                disabled={!book?.quantity}
+                className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
+              >
+                {!book?.quantity
+                  ? "Not Available"
+                  : isPending
+                  ? "Borrowing..."
+                  : "Borrow This Book"}
+              </button>
+            )}
           </div>
         </div>
       </div>

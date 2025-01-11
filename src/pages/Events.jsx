@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet-async";
+
 const Events = () => {
   const events = [
     {
@@ -85,6 +87,9 @@ const Events = () => {
 
   return (
     <div className="p-6 bg-gray-50">
+      <Helmet>
+        <title>Events - Study Shelf</title>
+      </Helmet>
       <h1 className="text-3xl lg:text-5xl font-bold mb-6 text-center">
         Events & Announcements
       </h1>
@@ -92,7 +97,7 @@ const Events = () => {
         {events.map((event) => (
           <div
             key={event.id}
-            className="event-card bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition"
+            className="event-card bg-white p-6 shadow-md rounded-lg hover:shadow-lg transition animate__animated animate__zoomIn"
           >
             <h2 className="text-2xl font-semibold mb-2 bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
               {event.title}

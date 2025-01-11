@@ -1,13 +1,14 @@
 import { BiEditAlt } from "react-icons/bi";
 import { motion } from "motion/react";
-import { MdDelete, MdNumbers } from "react-icons/md";
-import { FaInfoCircle } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 import ReactStars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const CardView = ({ books, setBooks }) => {
+  const { user } = useAuth();
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure you want to Remove yhis?",
@@ -103,23 +104,50 @@ const CardView = ({ books, setBooks }) => {
               <div className="flex items-center justify-between mt-4">
                 <div className="flex items-center gap-2">
                   <Link
-                    to={`/update-book/${book._id}`}
-                    className="btn btn-sm text-white bg-purple-700 hover:bg-purple-800"
-                  >
-                    <BiEditAlt size={20}></BiEditAlt>
-                  </Link>
-                  <Link
                     to={`/bookDetails/${book._id}`}
                     className="btn btn-sm btn-outline text-purple-700 hover:bg-purple-800"
                   >
-                    <FaInfoCircle size={20}></FaInfoCircle>
+                    Details
                   </Link>
-                  <button
-                    onClick={() => handleDelete(book._id)}
-                    className="btn btn-sm btn-outline text-red-500 hover:bg-red-500 hover:border-red-500"
-                  >
-                    <MdDelete size={20}></MdDelete>
-                  </button>
+                  {user?.email !== book?.email ? (
+                    <div className=" relative group">
+                      <button
+                        disabled
+                        className="btn btn-sm text-white bg-purple-700 hover:bg-purple-800"
+                      >
+                        <BiEditAlt size={20}></BiEditAlt>
+                        {user?.email !== book.email && (
+                          <div className="absolute top-[-50px] left-[-50px] translate-y-[-20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-hover:z-[1000] transition-all duration-500">
+                            <p className="text-[0.9rem] w-48 bg-purple-700 text-white rounded px-3 py-2 ">
+                              You can only Edit the books you Added!
+                            </p>
+                          </div>
+                        )}
+                      </button>
+                    </div>
+                  ) : (
+                    <Link to={`/update-book/${book._id}`}>
+                      <button className="btn btn-sm text-white bg-purple-700 hover:bg-purple-800">
+                        <BiEditAlt size={20}></BiEditAlt>
+                      </button>
+                    </Link>
+                  )}
+                  <div className="relative group">
+                    <button
+                      disabled={user?.email !== book?.email}
+                      onClick={() => handleDelete(book._id)}
+                      className="btn btn-sm btn-outline text-red-500 hover:bg-red-500 hover:border-red-500"
+                    >
+                      <MdDelete size={20}></MdDelete>
+                      {user?.email !== book.email && (
+                        <div className=" absolute top-[-50px] left-[-50px] translate-y-[-20px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-hover:z-[1000] transition-all duration-500">
+                          <p className="text-[0.9rem] w-48 bg-purple-700 text-white rounded px-3 py-2">
+                            You can only Delete the books you Added!
+                          </p>
+                        </div>
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

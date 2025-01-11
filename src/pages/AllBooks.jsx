@@ -4,10 +4,11 @@ import TableView from "../components/TableView";
 import CardView from "../components/CardView";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { BiCard } from "react-icons/bi";
+import Loader from "../components/Loader";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [tableView, setTableView] = useState(false);
 
   useEffect(() => {
@@ -16,15 +17,16 @@ const AllBooks = () => {
         const { data } = await axios.get(
           "https://study-shelf-server.vercel.app/allBooks"
         );
-        // console.log(data);
         setBooks(data);
+        setLoading(false);
       } catch (err) {
         toast.error(err?.message);
       }
     };
-
     getData();
   }, []);
+
+  if (loading) return <Loader />;
 
   const handleShowAvailable = () => {
     const getAvailableData = async () => {

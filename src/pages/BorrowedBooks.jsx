@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { Helmet } from "react-helmet-async";
 import Lottie from "lottie-react";
 import noDataAnimation from "../assets/noData.json";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
+
 import useAxiosSecure from "../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loader from "../components/Loader";

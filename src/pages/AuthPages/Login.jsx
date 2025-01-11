@@ -37,7 +37,7 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((result) => {
+      .then(() => {
         Swal.fire({
           icon: "success",
           title: "User Login Successful",
