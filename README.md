@@ -34,23 +34,25 @@ Study Shelf is a web-based library management system designed to streamline the 
 
 ## Dependencies
 
-- @tanstack/react-query: ^5.62.10
-- animate.css: ^4.1.1
-- aos: ^2.3.4
-- axios: ^1.7.9
-- firebase: ^11.1.0
-- lottie-react: ^2.4.0
-- motion: ^11.15.0
-- react: ^18.3.1
-- react-dom: ^18.3.1
-- react-fast-marquee: ^1.6.5
-- react-helmet-async: ^2.0.5
-- react-hook-form: ^7.54.2
-- react-hot-toast: ^2.4.1
-- react-icons: ^5.4.0
-- react-rating-stars-component: ^2.2.0
-- sweetalert2: ^11.15.3
-- swiper: ^11.1.15
+```json
+- `@tanstack/react-query`: ^5.62.10
+- `animate.css`: ^4.1.1
+- `aos`: ^2.3.4
+- `axios`: ^1.7.9
+- `firebase`: ^11.1.0
+- `lottie-react`: ^2.4.0
+- `motion`: ^11.15.0
+- `react`: ^18.3.1
+- `react-dom`: ^18.3.1
+- `react-fast-marquee`: ^1.6.5
+- `react-helmet-async`: ^2.0.5
+- `react-hook-form`: ^7.54.2
+- `react-hot-toast`: ^2.4.1
+- `react-icons`: ^5.4.0
+- `react-rating-stars-component`: ^2.2.0
+- `sweetalert2`: ^11.15.3
+- `swiper`: ^11.1.15
+```
 
 ## LINKS
 
