@@ -8,18 +8,20 @@ const CategoryPage = () => {
   const books = useLoaderData();
 
   return (
-    <div className="my-6 mx-auto w-11/12 font-oswald">
+    <div className="font-oswald">
       <Helmet>
         <title>{category} - Study Shelf</title>
       </Helmet>
-      <div>
-        <div className="text-center">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-8">
-            Check Our{" "}
-            <span className="font-pacifico text-purple-900">{category}</span>{" "}
-            Books
-          </h2>
-        </div>
+      <div className="text-center bg-gradient-to-tr from-purple-600 via-purple-800 to-purple-900 p-16">
+        <h2 className="text-3xl lg:text-5xl font-bold mb-8 text-white">
+          Check Our{" "}
+          <span className="font-pacifico text-purple-300 font-light">
+            {category}
+          </span>{" "}
+          Books
+        </h2>
+      </div>
+      <div className="mx-auto w-11/12 my-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {books?.map((book) => (
             <div

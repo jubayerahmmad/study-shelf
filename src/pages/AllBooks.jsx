@@ -43,20 +43,19 @@ const AllBooks = () => {
   };
 
   return (
-    <div className="my-6 mx-auto w-11/12 font-oswald">
+    <div className="font-oswald">
       <Helmet>
         <title>All Books - Study Shelf</title>
       </Helmet>
-      <div>
-        <div className="text-center">
-          <h2 className="text-3xl lg:text-5xl font-bold mb-8 animate__animated animate__fadeInDown">
-            Explore Our{" "}
-            <span className="font-pacifico bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
-              Collections
-            </span>
-          </h2>
-        </div>
-
+      <div className="text-center bg-gradient-to-tr from-purple-600 via-purple-800 to-purple-900 p-16">
+        <h2 className="text-3xl lg:text-5xl text-white font-bold mb-8 animate__animated animate__fadeInDown">
+          Explore Our{" "}
+          <span className="font-pacifico font-light bg-gradient-to-br from-purple-100 via-purple-200 to-purple-500 bg-clip-text text-transparent">
+            Collections
+          </span>
+        </h2>
+      </div>
+      <div className="my-6 mx-auto w-10/12">
         <div className="flex gap-2 items-center justify-between lg:justify-center mb-6 animate__animated animate__zoomIn">
           {/* toggle view */}
           <div>

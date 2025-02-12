@@ -46,15 +46,15 @@ const AddBooks = () => {
   };
 
   return (
-    <div className="w-10/12 mx-auto my-6">
-      <Helmet>
-        <title>Add Books - Study Shelf</title>
-      </Helmet>
+    <div className="my-6">
       {/* FORM */}
       <div
-        className="max-w-6xl mx-auto shadow-xl rounded-md p-4 bg-gradient-to-r from-slate-100 via-purple-200 to-slate-200 bg-opacity-70"
+        className="max-w-7xl mx-auto shadow-xl rounded-md p-4 bg-gradient-to-r from-purple-50 via-purple-200 to-purple-300 bg-opacity-70"
         data-aos="zoom-in"
       >
+        <Helmet>
+          <title>Add Books - Study Shelf</title>
+        </Helmet>
         <div className="text-center space-y-3 my-6">
           <h2 className="text-3xl lg:text-5xl font-semibold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
             Add New Book

@@ -63,16 +63,16 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-2">
+    <div className="min-h-screen flex flex-col items-center">
       <Helmet>
         <title>Book Details - Study Shelf</title>
       </Helmet>
-      <div>
-        <h1 className="text-2xl lg:text-4xl font-bold text-gray-800 my-6 text-center">
-          Check Details of{" "}
+      <div className="text-center bg-gradient-to-tr from-purple-600 via-purple-800 to-purple-900 p-16 w-full">
+        <h1 className="text-2xl lg:text-4xl font-bold text-gray-100 my-6 text-center">
+          View Details of{" "}
           <motion.p
             animate={{
-              color: ["#040405", "#8f07d8", "#3d0552", "#bd42ff", "#4c3359"],
+              color: ["#040405", "#ffff", "#3d0552", "#fff"],
               x: [1, 10, 0],
             }}
             transition={{
@@ -89,14 +89,15 @@ const BookDetails = () => {
 
       {/* card  */}
       <div
-        className="bg-purple-50 bg-opacity-80 backdrop-blur-sm rounded-xl shadow-md md:w-8/12 mx-auto mb-6"
+        className="grid grid-cols-1 lg:grid-cols-3 items-center border max-w-7xl mx-auto my-6"
         data-aos="zoom-in"
       >
-        <div className="bg-white bg-opacity-65 rounded-t-xl">
+        {/* image */}
+        <div className="w-full">
           <img
             src={book?.image}
             alt={book?.name}
-            className="w-full h-48 lg:h-96 p-3 object-contain rounded-md"
+            className="h-96 w-full object-contain rounded-xl"
           />
           <span
             className={`badge badge-accent absolute top-3 right-2 ${
@@ -106,7 +107,9 @@ const BookDetails = () => {
             {book.quantity ? `${book.quantity} Available` : "Out of Stock"}
           </span>
         </div>
-        <div className="space-y-4 p-6">
+
+        {/* text content */}
+        <div className="space-y-4 p-6 col-span-2">
           <div className="lg:flex gap-2 items-center py-2 space-y-2">
             <h1 className="text-4xl font-bold bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
               {book?.name}
@@ -158,7 +161,7 @@ const BookDetails = () => {
               <button
                 onClick={() => setisModalOpen(true)}
                 disabled={!book?.quantity}
-                className="btn text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
+                className="btn disabled:btn-disabled text-white bg-purple-600 hover:bg-purple-800 tracking-wide font-oswald"
               >
                 {!book?.quantity
                   ? "Not Available"

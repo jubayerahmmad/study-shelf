@@ -86,14 +86,14 @@ const Events = () => {
   ];
 
   return (
-    <div className="p-6 bg-gray-50">
+    <div className="bg-gray-50">
       <Helmet>
         <title>Events - Study Shelf</title>
       </Helmet>
-      <h1 className="text-3xl lg:text-5xl font-bold mb-6 text-center">
+      <h1 className="text-3xl lg:text-5xl text-white font-bold bg-gradient-to-tr from-purple-600 via-purple-800 to-purple-900 p-16 text-center">
         Events & Announcements
       </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 max-w-7xl mx-auto p-6">
         {events.map((event) => (
           <div
             key={event.id}

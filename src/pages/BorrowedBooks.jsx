@@ -59,10 +59,10 @@ const BorrowedBooks = () => {
       <Helmet>
         <title>Borrowed Books - Study Shelf</title>
       </Helmet>
-      <div className="text-center my-4">
-        <h2 className="text-3xl lg:text-5xl font-bold">
+      <div className="text-center">
+        <h2 className="text-3xl lg:text-5xl text-white font-bold text-center bg-gradient-to-tr from-purple-600 via-purple-800 to-purple-900 p-16">
           Books Borrowed by{" "}
-          <span className="bg-gradient-to-br from-purple-400 via-purple-700 to-purple-950 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-br from-purple-100 via-purple-200 to-purple-400 bg-clip-text text-transparent">
             {user.displayName}
           </span>
         </h2>
